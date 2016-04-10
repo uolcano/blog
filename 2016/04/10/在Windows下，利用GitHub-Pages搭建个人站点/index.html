@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在Windows下，利用GitHub Pages搭建个人站点 | UC&#39;s Programming Eden</title>
+  <meta name="author" content="uolcano">
+  
+  <meta name="description" content="To believe that programming make the life wonderful, make the world better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="在Windows下，利用GitHub Pages搭建个人站点"/>
+  <meta property="og:site_name" content="UC&#39;s Programming Eden"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/blog/favicon.png" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="UC&#39;s Programming Eden" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/blog/">UC&#39;s Programming Eden</a></h1>
+  <h2><a href="/blog/">To be a pure man, to be a social man</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/blog/">Home</a></li>
+    
+      <li><a href="/blog/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-04-10T15:52:04.000Z"><a href="/blog/2016/04/10/在Windows下，利用GitHub-Pages搭建个人站点/">2016-04-10</a></time>
+      
+      
+  
+    <h1 class="title">在Windows下，利用GitHub Pages搭建个人站点</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="搭建项目的demo页面"><a href="#搭建项目的demo页面" class="headerlink" title="搭建项目的demo页面"></a>搭建项目的demo页面</h2><ol>
+<li><p>将项目的展示页面文件放在repo的根目录下，并且命名为<code>index.html</code>，必须的.html为扩展名。</p>
+</li>
+<li><p>然后打开git shell，执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b gh-pages</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>PS：这里创建了一个名叫gh-pages的分支，因为github pages默认是为这个分支的创建页面的</p>
+<p>[√]done！自此即可通过 <a href="http://userName.github.io/repoName" target="_blank" rel="external">http://userName.github.io/repoName</a> 访问你的项目demo页面了。</p>
+<h2 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h2><p><strong>你可以选择GitHub网页版傻瓜式地搭建，但是文字编辑和本地测试肯定没有本地的方便，所以一般都是通过jekyll(github官方推荐的，适合Mac和Linux，Windows下会很麻烦)或者hexo(比较容易搭建)来自动生成静态页面，而博客作者只需要编辑MarkDown文本，以及少数的几条命令行即可将自己的文章快速部署到GitHub Pages上去。</strong></p>
+<h3 id="利用jekyll搭建"><a href="#利用jekyll搭建" class="headerlink" title="利用jekyll搭建"></a>利用jekyll搭建</h3><h4 id="方法一：Windows下通过rubygems安装jekyll"><a href="#方法一：Windows下通过rubygems安装jekyll" class="headerlink" title="方法一：Windows下通过rubygems安装jekyll"></a>方法一：Windows下通过rubygems安装jekyll</h4><p><strong>建议在对自己的网络状况有信心的情况下采用。我是顺利安装完rubygems后，bundle install出问题，后面的内容有参考其他指引性文章，只能转而用vagrant虚拟机装了ubuntu系统后配置的jekyll。觉得这个方法不靠谱的可以skip到方法三或者改用hexo</strong></p>
+<ol>
+<li><p>去 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> 下载rubyinstaller.exe和DevKit,两个要对应版本，且对应操作系统</p>
+</li>
+<li><p>执行rubyinstaller.exe，安装ruby</p>
+</li>
+<li><p>将DevKit执行，并解到一个指定命名文件夹，如：RubyDevKit；管理员权限打开cmd执行<code>ruby dk.rb init</code>；执行<code>dk.rb install</code></p>
+</li>
+<li><p>去 <a href="https://rubygems.org/pages/download" target="_blank" rel="external">https://rubygems.org/pages/download</a> 下载RubyGems，解压缩出来的文件夹，如：rubygems；管理员权限重新打开cmd，执行<code>cd rubygems</code>，执行<code>ruby setup.rb</code></p>
+</li>
+<li><p>修改rubygems的源为淘宝源：<br><code>gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</code><br>淘宝的源不行的话就用ruby-china的源 <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a></p>
+</li>
+<li><p>如果出现证书失败，就去下载一个curl，放在一个目录下，cmd执行<code>curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem</code><br>将下载的cacert.pem移到ruby的安装目录下的bin文件夹里，并且在环境变量中（应该是系统变量）新建SSL_CERT_FILE，值为移动后的cacert.pem的绝对路径</p>
+</li>
+<li><p>安装bundler</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在创建好的作为博客的repo下，新建一个文件，命名为Gemfile，里面的内容是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://ruby.taobao.org&apos;</span><br><span class="line">gem &apos;github-pages&apos;, group: :jekyll_plugins</span><br></pre></td></tr></table></figure>
+<p>国内使用淘宝的源 <a href="https://ruby.taobao.org" target="_blank" rel="external">https://ruby.taobao.org</a> 比较快，故未使用 <a href="https://rubygems.org" target="_blank" rel="external">https://rubygems.org</a> 。当然国内的用 <a href="https://gems.ruby-china.org" target="_blank" rel="external">https://gems.ruby-china.org</a> 也是一个选择。<br>要注意，这里要保证在本地已经安装并登录了GitHub，可以直接下载<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub Desketop</a>安装登陆即可。</p>
+</li>
+<li><p>安装jekyll和相关依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<p>安装完成后，会提示<code>Thank you for installing github-pages!</code>等</p>
+</li>
+<li><p>将本地页面部署到github上去，执行<code>bundle update</code>或者<code>bundle update github-pages</code></p>
+</li>
+<li><p>在Ruby\lib\ruby\gems类似这样的目录下找到对应版本下的gems目录，找到jekyll目录的lib\site_template，这里有个_config.yml文件，用文本编辑器（建议用notepad++等，而不是系统自带的notedpad）打开，在# Build settings字段下添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">markdown: kramdown</span><br><span class="line">highlighter: rouge</span><br></pre></td></tr></table></figure>
+<p>高亮需要安装<strong>rouge</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rouge</span><br></pre></td></tr></table></figure>
+<p>另外，如果要以<strong>pygments</strong>作为高亮风格，还需要安装<a href="http://www.python.org/download/" target="_blank" rel="external">python</a>，以及<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="external">pip</a>，转到get-pip.py的下载目录执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
+<p>安装pygments</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install Pygments</span><br></pre></td></tr></table></figure>
+<p>然后在_config.yml文件中，设置为<code>highlighter: pygments</code>。</p>
+<p>jekyll的高亮使用语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% highlight bash %&#125;</span><br><span class="line">$ gem install bundler</span><br><span class="line">&#123;% endhighlight %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="方法二：Windows下通过chocolatey快速安装jekyll"><a href="#方法二：Windows下通过chocolatey快速安装jekyll" class="headerlink" title="方法二：Windows下通过chocolatey快速安装jekyll"></a>方法二：Windows下通过chocolatey快速安装jekyll</h4><ul>
+<li><a href="">在Windows下，利用chocolatey快速安装jekyll（无bundler）</a><br><strong>注意</strong>：要确保在本地已经安装并登录了GitHub。</li>
+</ul>
+<h4 id="方法三：Windows下通过vagrant虚拟Linux系统安装jekyll"><a href="#方法三：Windows下通过vagrant虚拟Linux系统安装jekyll" class="headerlink" title="方法三：Windows下通过vagrant虚拟Linux系统安装jekyll"></a>方法三：Windows下通过vagrant虚拟Linux系统安装jekyll</h4><ul>
+<li><a href="">Install Linux Terminal using Vagrant under Windows</a></li>
+<li><a href="">Build Site on GitHub Pages by jekyll under Linux</a></li>
+</ul>
+<h3 id="利用hexo搭建"><a href="#利用hexo搭建" class="headerlink" title="利用hexo搭建"></a>利用hexo搭建</h3><ul>
+<li><a href="">在Windows下，利用hexo+GitHub Pages快速搭建个人站点</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">一步步在GitHub上创建博客主页-最新版</a></li>
+<li><a href="http://jekyll-windows.juthilo.com/" target="_blank" rel="external">Run Jekyll on Windows</a></li>
+<li><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">Setting up your GitHub Pages site locally with Jekyll
+</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/blog/categories/Building-Site/">Building Site</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/blog/tags/Windows/">Windows</a>, <a href="/blog/tags/GitHub-Pages/">GitHub Pages</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/04/10/在Windows下，利用GitHub-Pages搭建个人站点/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:uolcano.github.io/blog">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Windows/">Windows</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/chocolatey/">chocolatey</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/jekyll/">jekyll</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/nodejs/">nodejs</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/nvm/">nvm</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rails/">rails</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/ruby/">ruby</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rvm/">rvm</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 uolcano
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

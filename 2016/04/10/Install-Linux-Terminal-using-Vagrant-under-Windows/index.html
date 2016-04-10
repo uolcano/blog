@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Install Linux Terminal using Vagrant under Windows | UC&#39;s Programming Eden</title>
+  <meta name="author" content="uolcano">
+  
+  <meta name="description" content="To believe that programming make the life wonderful, make the world better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Install Linux Terminal using Vagrant under Windows"/>
+  <meta property="og:site_name" content="UC&#39;s Programming Eden"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/blog/favicon.png" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="UC&#39;s Programming Eden" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/blog/">UC&#39;s Programming Eden</a></h1>
+  <h2><a href="/blog/">To be a pure man, to be a social man</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/blog/">Home</a></li>
+    
+      <li><a href="/blog/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-04-10T04:35:20.000Z"><a href="/blog/2016/04/10/Install-Linux-Terminal-using-Vagrant-under-Windows/">2016-04-10</a></time>
+      
+      
+  
+    <h1 class="title">Install Linux Terminal using Vagrant under Windows</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>近几天着手在Windows下通过<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>搭建个人博客，但由于国内网络问题和Windows下安装ruby和bundler的各种证书问题，安装jekyll折腾了好久。无奈，经朋友介绍，通过使用VirtualBox+Vagrant+PuTTY终于可以安装好jekyll并成功搭建示范站点了。本文作为安装记录方便以后有需要的时候再次安装，如能对其他读者有所帮助，不胜荣幸。</strong></p>
+<h2 id="“食材”准备"><a href="#“食材”准备" class="headerlink" title="“食材”准备"></a>“食材”准备</h2><ul>
+<li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">VirtualBox</a>  </li>
+<li><a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="external">Vagrant</a></li>
+<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">PuTTY和PuTTYGen</a></li>
+</ul>
+<h2 id="“食材”选择"><a href="#“食材”选择" class="headerlink" title="“食材”选择"></a>“食材”选择</h2><ol>
+<li>VirtualBox选“VirtualBox 5.0.16 for Windows hosts”下载，我装的时候5.0.16是最新的，并且一定要下载“VirtualBox 5.0.16 Oracle VM VirtualBox Extension Pack”。都是双击安装，win下都是无脑双击了；  </li>
+<li>Vagrant选择Windows通用版，下载安装就好了；  </li>
+<li>PuTTY和PuTTYGen(后面生成私钥，避免每次登陆都要输密码用的，实际上我用的每次都不成功，所以觉得可以接收每次都手动输入密码的，可以忽略这个)，我是直接下载的putty.zip，里面包含了PuTTY和PuTTYGen。  </li>
+</ol>
+<p>PS：考虑到国内网络情况，下载box的时候可能会有问题，建议使用迅雷之类的下载工具手动下载box压缩镜像。这里是<a href="http://laravel.io/forum/05-06-2015-how-to-download-vagrant-box-manually" target="_blank" rel="external">参考问题</a>和<a href="https://atlas.hashicorp.com/boxes/search?utm_source=vagrantcloud.com&amp;vagrantcloud=1" target="_blank" rel="external">box清单</a>，我这里选择的是ubuntu/trusty64系统，版本号是清单中对应的v20160323.1.0，可用的下载链接地址就是：<br><a href="https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160323.1.0/providers/virtualbox.box" target="_blank" rel="external">https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160323.1.0/providers/virtualbox.box</a></p>
+<h2 id="“烹调”方式"><a href="#“烹调”方式" class="headerlink" title="“烹调”方式"></a>“烹调”方式</h2><h3 id="VirtualBox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h3><ol>
+<li>必须先安装好了VirtualBox，才能保证成功装载vagrant虚拟系统；</li>
+<li>无脑安装VirtualBox和扩展包。</li>
+</ol>
+<h3 id="Vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h3><ol>
+<li>安装，不多说；  </li>
+<li>开启cmd或者powershell，最好是以管理员权限打开，防止后面<code>vagrant up</code>的时候出状况；  </li>
+<li><p>由于不确定init过程中是否会有其他文件释放出来，最好先转到vagrant安装目录下执行（<code>cd ./vagrant</code>），输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant init ubuntu/trusty64</span><br><span class="line">vagrant box add --name BOX virtualbox.box # virtualbox.box是手动下载好的压缩镜像，我是放在vagrant目录下的，如果放在其他地方还要补充完整路径，网络好的情况下可以skip这条</span><br><span class="line">vagrant up # 需要等待挺久的，可以放着干别的事了</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vagrant添加box成功后，可以通过<code>vagrant box list</code>查看已经装载的虚拟系统；vagrant装载成功后，可以通过<code>vagrant status</code>查看状态，“running virtualbox”表示正在运行服务，“poweroff”表示已经终止；  </p>
+</li>
+<li>使用<code>vagrant ssh-config</code>来查看已经开启的ssh的相关信息，注意一定要是使用<code>vagrant up</code>以后，才会开启服务。记录下相关信息，或者保持这个页面，后面的PuTTY设置需要用。  </li>
+</ol>
+<p>PS：常用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant up #启动虚拟机</span><br><span class="line">vagrant halt #关闭虚拟机</span><br><span class="line">vagrant status #查看虚拟机运行状态</span><br></pre></td></tr></table></figure></p>
+<p>更多命令可查看<a href="https://www.vagrantup.com/docs/cli/" target="_blank" rel="external">Vagrant文档</a></p>
+<h3 id="PuTTY和PuTTYGen"><a href="#PuTTY和PuTTYGen" class="headerlink" title="PuTTY和PuTTYGen"></a>PuTTY和PuTTYGen</h3><p>PuTTY只是一个开启虚拟终端的平台，vagrant可能会推荐使用cygwin/mingw/git等工具，可自己选择，不过我不知道怎么设置主机名和端口。  </p>
+<ol>
+<li>打开PuTTY，Session-&gt;Host Name，输入127.0.0.1，Port输入2222。这两个都是vagrant自动分配的，信息来自<code>vagrant ssh-config</code>打印的结果；  </li>
+<li>在Session-&gt;Saved Sessions下输入一个自定义的名称如“VM-trusty64”，然后Save。这一步的作用是以后每次开启PuTTY时只需要选择“VM-trusty64”，然后Load，就可以直接Open了。其他都可以不设置；  </li>
+<li>如果你需要设置自动登录，也就是面输入密码，请到页面最下面查看第一条参考链接。因为我没有尝试成功，在这里就不描述了；  </li>
+<li>Open以后，就是跳转出终端，首先就是输入用户名和密码，两者都是<code>vagrant</code>，密码不会显示出来，输入完后enter即可。  </li>
+</ol>
+<p>打开终端后，即可使用ubuntu下的linux命令了。如果要使用其他虚拟系统，可以对应box清单，下载对应版本虚拟系统的压缩镜像。</p>
+<p>最后，感谢@X!aoTian给与的耐心帮助。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://www.sitepoint.com/getting-started-vagrant-windows/" target="_blank" rel="external">Getting Started with Vagrant on Windows</a></li>
+<li><a href="http://laravel.io/forum/05-06-2015-how-to-download-vagrant-box-manually" target="_blank" rel="external">how to download vagrant box manually?</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/blog/categories/Building-Site/">Building Site</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/blog/tags/Windows/">Windows</a>, <a href="/blog/tags/Vagrant/">Vagrant</a>, <a href="/blog/tags/VirtualBox/">VirtualBox</a>, <a href="/blog/tags/PuTTY/">PuTTY</a>, <a href="/blog/tags/Linux-Terminal/">Linux Terminal</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/04/10/Install-Linux-Terminal-using-Vagrant-under-Windows/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:uolcano.github.io/blog">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Windows/">Windows</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/chocolatey/">chocolatey</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/jekyll/">jekyll</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/nodejs/">nodejs</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/nvm/">nvm</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rails/">rails</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/ruby/">ruby</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rvm/">rvm</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 uolcano
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

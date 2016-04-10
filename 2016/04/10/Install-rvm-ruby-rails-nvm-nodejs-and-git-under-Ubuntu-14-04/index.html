@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04 | UC&#39;s Programming Eden</title>
+  <meta name="author" content="uolcano">
+  
+  <meta name="description" content="To believe that programming make the life wonderful, make the world better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04"/>
+  <meta property="og:site_name" content="UC&#39;s Programming Eden"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/blog/favicon.png" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="UC&#39;s Programming Eden" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/blog/">UC&#39;s Programming Eden</a></h1>
+  <h2><a href="/blog/">To be a pure man, to be a social man</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/blog/">Home</a></li>
+    
+      <li><a href="/blog/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-04-10T15:34:25.000Z"><a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">2016-04-10</a></time>
+      
+      
+  
+    <h1 class="title">Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><p>下载证书</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装稳定版rvm以及最新版的ruby</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖，初始化并立即执行</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev</span><br><span class="line">source ~/.rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改rubygems的源为淘宝ruby源，并查看确认</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">gen sources -l</span><br></pre></td></tr></table></figure>
+<p> PS：淘宝源如果有问题fetch error的话，可以改用 <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> 替换。</p>
+</li>
+<li><p>以sudo安装rubygems-update</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem install rubygems-update</span><br><span class="line">update_rubygems</span><br><span class="line">gem update --system</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装bundler</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装rails</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rails</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装nvm</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p> 安装最新版nodejs</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 5.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装及配置git</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<p> 配置git基本信息，并生成ssh公钥</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #查看配置信息</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
+<p> 查看生成的公钥，并复制之</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p> 到github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key，给SSH key写个名字作为Title，在key下粘贴从id_rsa.pub里复制公钥。然后Add SSH key即可。</p>
+<p> 将本地git与github账号建立连接</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p> 显示一下信息，即表示连接成功<br> <code>Hi YOUR NAME! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://rvm.io/rvm/install" target="_blank" rel="external">https://rvm.io/rvm/install</a></li>
+<li><a href="https://github.com/rvm/rvm" target="_blank" rel="external">https://github.com/rvm/rvm</a></li>
+<li><a href="https://gorails.com/setup/ubuntu/14.04" target="_blank" rel="external">https://gorails.com/setup/ubuntu/14.04</a></li>
+<li><a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></li>
+<li><a href="http://gems.ruby-china.org/" target="_blank" rel="external">http://gems.ruby-china.org/</a></li>
+<li><a href="http://stackoverflow.com/questions/13626143/how-to-upgrade-rubygems" target="_blank" rel="external">http://stackoverflow.com/questions/13626143/how-to-upgrade-rubygems</a></li>
+<li><a href="https://github.com/creationix/nvm" target="_blank" rel="external">https://github.com/creationix/nvm</a></li>
+<li><a href="https://help.github.com/articles/set-up-git/" target="_blank" rel="external">https://help.github.com/articles/set-up-git/</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/blog/categories/Building-Site/">Building Site</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a>, <a href="/blog/tags/rvm/">rvm</a>, <a href="/blog/tags/ruby/">ruby</a>, <a href="/blog/tags/rails/">rails</a>, <a href="/blog/tags/nvm/">nvm</a>, <a href="/blog/tags/nodejs/">nodejs</a>, <a href="/blog/tags/git/">git</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:uolcano.github.io/blog">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Windows/">Windows</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/chocolatey/">chocolatey</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/jekyll/">jekyll</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/nodejs/">nodejs</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/nvm/">nvm</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rails/">rails</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/ruby/">ruby</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rvm/">rvm</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 uolcano
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
