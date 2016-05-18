@@ -52,6 +52,88 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-05-18T06:46:05.000Z"><a href="/blog/2016/05/18/Install-Android-SDK-On-Ubuntu14-04-By-CLI/">2016-05-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/blog/2016/05/18/Install-Android-SDK-On-Ubuntu14-04-By-CLI/">Install Android SDK On Ubuntu14.04 By CLI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="installing-steps"><a href="#Installing-Steps" class="headerlink" title="Installing Steps"></a>Installing Steps</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># install jdk</span><br><span class="line">sudo apt-get install openjdk-7-jdk</span><br><span class="line"># or install jdk by default</span><br><span class="line">sudo apt-get install default-jdk</span><br><span class="line"># download android sdk</span><br><span class="line">wget http://dl.google.com/android/android-sdk_r24.2.1-linux.tgz </span><br><span class="line"># or download from https://developer.android.com/studio/index.html</span><br><span class="line"># then unzip</span><br><span class="line">tar -xvf android-sdk_r24.2.1-linux.tgz</span><br><span class="line"># chang directory to sdk/tools</span><br><span class="line">cd android-sdk-linux/tools</span><br><span class="line"># install all sdk packages</span><br><span class="line">./android update sdk --no-ui</span><br><span class="line"># set path. skip to next step if not work.</span><br><span class="line">vi ~/.zshrc &lt;&lt; EOT</span><br><span class="line">export PATH=${PATH}:$HOME/sdk/android-sdk-linux/platform-tools:$HOME/sdk/android-sdk-linux/tools:$HOME/sdk/android-sdk-linux/build-tools/22.0.1/</span><br><span class="line">EOT</span><br><span class="line"># install 32-bit libraries on 64-bit Ubuntu</span><br><span class="line">sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6</span><br></pre></td></tr></table></figure>
+<h2 id="ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><ul>
+<li><a href="https://gist.github.com/wenzhixin/43cf3ce909c24948c6e7#file-ubuntu14-04-command-line-install-android-sdk-L4-L5" target="_blank" rel="external">ubuntu14.04-command-line-install-android-sdk</a></li>
+<li><a href="https://developer.android.com/studio/install.html" target="_blank" rel="external">Install Android Studio</a></li>
+<li><a href="http://stackoverflow.com/questions/19794200/gradle-android-and-the-android-home-sdk-location" target="_blank" rel="external">resolve the SDK LOCATION ERROR in Answer one</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">How To Install Java on Ubuntu with Apt-Get</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-07T13:09:59.000Z"><a href="/blog/2016/05/07/Install-Java-On-Ubuntu-By-CommandLine/">2016-05-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/blog/2016/05/07/Install-Java-On-Ubuntu-By-CommandLine/">Install Java On Ubuntu By CommandLine</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="installing-jrejdk"><a href="#Installing-JRE-JDK" class="headerlink" title="Installing JRE/JDK"></a>Installing JRE/JDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  # update the package index</span><br><span class="line">java -version  # check if java installed</span><br><span class="line">sudo apt-get install default-jre  # install JRE</span><br><span class="line">sudo apt-get install default-jdk  # install JDK, if necessary</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">## Setting the &quot;JAVA_HOME&quot; environment variable  </span><br><span class="line">1. find out the path of JAVA installation</span><br></pre></td></tr></table></figure>
+<p>sudo update-alternatives &#x2013;config java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It perhaps returns:</span><br></pre></td></tr></table></figure></p>
+<p>There is only one alternative in link group java (providing /usr/bin/java): /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Then, _the path_ is &quot;/usr/lib/jvm/java-7-openjdk-amd64&quot;, hold it.  </span><br><span class="line"></span><br><span class="line">2. use nano to edit the file /etc/environment</span><br></pre></td></tr></table></figure></p>
+<p>sudo nano /etc/environment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In this file, append _the path_, holden just now, into the quotes, seperate by colon, like this:</span><br></pre></td></tr></table></figure></p>
+<p>JAVA_HOME=&#x201D;your/other/paths:/usr/lib/jvm/java-7-openjdk-amd64&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. reload the file /etc/environment</span><br></pre></td></tr></table></figure></p>
+<p>source /etc/environment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. check if java installed</span><br></pre></td></tr></table></figure></p>
+<p>java -version<br>```</p>
+<p>Finally, it maybe not have to set the environment variable. I don&#x2019;t test that, after someone told me.</p>
+<h2 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">How To Install Java on Ubuntu with Apt-Get | DigitalOcean</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-04-10T15:58:07.000Z"><a href="/blog/2016/04/10/在Windows下，利用chocolatey快速安装jekyll（无bundler）/">2016-04-10</a></time>
       
       
@@ -62,18 +144,24 @@
     </header>
     <div class="entry">
       
-        <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li><p>安装chocolatey。管理员权限的cmd下，执行如下命令：  </p>
+        <!-- toc -->
+<ul>
+<li><a href="#&#x5B89;&#x88C5;&#x6B65;&#x9AA4;">&#x5B89;&#x88C5;&#x6B65;&#x9AA4;</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x5B89;&#x88C5;&#x6B65;&#x9AA4;"><a href="#&#x5B89;&#x88C5;&#x6B65;&#x9AA4;" class="headerlink" title="&#x5B89;&#x88C5;&#x6B65;&#x9AA4;"></a>&#x5B89;&#x88C5;&#x6B65;&#x9AA4;</h2><ol>
+<li><p>&#x5B89;&#x88C5;chocolatey&#x3002;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x7684;cmd&#x4E0B;&#xFF0C;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((new-object net.webclient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装ruby。以管理员权限重启cmd，执行<code>choco install ruby -y</code>，自动安装ruby2.2.4。</p>
+<li><p>&#x5B89;&#x88C5;ruby&#x3002;&#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x91CD;&#x542F;cmd&#xFF0C;&#x6267;&#x884C;<code>choco install ruby -y</code>&#xFF0C;&#x81EA;&#x52A8;&#x5B89;&#x88C5;ruby2.2.4&#x3002;</p>
 </li>
-<li><p>安装jekyll。管理员权限重启cmd，执行<code>gem install jekyll</code>。</p>
+<li><p>&#x5B89;&#x88C5;jekyll&#x3002;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x91CD;&#x542F;cmd&#xFF0C;&#x6267;&#x884C;<code>gem install jekyll</code>&#x3002;</p>
 </li>
 </ol>
-<p>至此，可以使用jekyll命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jekyll new myblog</span><br><span class="line">cd myblog</span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure></p>
-<p>最后，据GitHub Help的指南，通过以下命令可以在不安装bundler的情况下直接将本地页面部署到github上（<strong>尚未测试可行性</strong>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update github-pages</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;jekyll&#x547D;&#x4EE4;&#x884C;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jekyll new myblog</span><br><span class="line">cd myblog</span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure></p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x636E;GitHub Help&#x7684;&#x6307;&#x5357;&#xFF0C;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x5B89;&#x88C5;bundler&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x76F4;&#x63A5;&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github&#x4E0A;&#xFF08;<strong>&#x5C1A;&#x672A;&#x6D4B;&#x8BD5;&#x53EF;&#x884C;&#x6027;</strong>&#xFF09;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update github-pages</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
 <li><a href="https://davidburela.wordpress.com/2015/11/28/easily-install-jekyll-on-windows-with-3-command-prompt-entries-and-chocolatey/" target="_blank" rel="external">Easily install Jekyll on Windows with 2 command prompt entries and Chocolatey</a></li>
 <li><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#keeping-your-site-up-to-date-with-the-github-pages-gem" target="_blank" rel="external">Keeping your site up to date with the GitHub Pages gem</a></li>
 </ul>
@@ -99,57 +187,68 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-04-10T15:55:32.000Z"><a href="/blog/2016/04/10/在Windows下，利用hexo-GitHub-Pages快速搭建个人站点/">2016-04-10</a></time>
+        <time datetime="2016-04-10T15:55:32.000Z"><a href="/blog/2016/04/10/在Windows下，利用Hexo-GitHub-Pages快速搭建个人站点/">2016-04-10</a></time>
       
       
   
-    <h1 class="title"><a href="/blog/2016/04/10/在Windows下，利用hexo-GitHub-Pages快速搭建个人站点/">在Windows下，利用hexo+GitHub Pages快速搭建个人站点</a></h1>
+    <h1 class="title"><a href="/blog/2016/04/10/在Windows下，利用Hexo-GitHub-Pages快速搭建个人站点/">在Windows下，利用Hexo+GitHub Pages快速搭建个人站点</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h2><p>去<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs.org</a>下载以.msi为扩展名的安装包，如果不需要进行NodeJs相关开发的话选择LTS版本就够了，双击安装</p>
-<h2 id="安装GitHub-Desktop"><a href="#安装GitHub-Desktop" class="headerlink" title="安装GitHub Desktop"></a>安装GitHub Desktop</h2><p>直接下载<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub Desketop</a>，安装并登录即可</p>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>至此，即可使用hexo搭建站点了</p>
-<h2 id="搭建默认页面"><a href="#搭建默认页面" class="headerlink" title="搭建默认页面"></a>搭建默认页面</h2><p><strong>如果不是要将你的username.github.io整个页面搭建为博客站点建议不要以username.github.io这个repo作为站点部署的目标。如果只是要搭建博客站，可以直接在GitHub上新建一个叫blog的repo，后面的_config.yml配置的branch对应gh-pages，以后部署站点直接通过“hexo deploy”就会自动将本地内容push到GitHub上去。</strong></p>
+        <!-- toc -->
+<ul>
+<li><a href="#&#x5B89;&#x88C5;nodejs">&#x5B89;&#x88C5;NodeJs</a></li>
+<li><a href="#&#x5B89;&#x88C5;github-desktop">&#x5B89;&#x88C5;GitHub Desktop</a></li>
+<li><a href="#&#x5B89;&#x88C5;hexo">&#x5B89;&#x88C5;hexo</a></li>
+<li><a href="#&#x642D;&#x5EFA;&#x9ED8;&#x8BA4;&#x9875;&#x9762;">&#x642D;&#x5EFA;&#x9ED8;&#x8BA4;&#x9875;&#x9762;</a></li>
+<li><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li>
+<li><a href="#bonus">bonus</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x5B89;&#x88C5;nodejs"><a href="#&#x5B89;&#x88C5;NodeJs" class="headerlink" title="&#x5B89;&#x88C5;NodeJs"></a>&#x5B89;&#x88C5;NodeJs</h2><p>&#x53BB;<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs.org</a>&#x4E0B;&#x8F7D;&#x4EE5;.msi&#x4E3A;&#x6269;&#x5C55;&#x540D;&#x7684;&#x5B89;&#x88C5;&#x5305;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;NodeJs&#x76F8;&#x5173;&#x5F00;&#x53D1;&#x7684;&#x8BDD;&#x9009;&#x62E9;LTS&#x7248;&#x672C;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x53CC;&#x51FB;&#x5B89;&#x88C5;</p>
+<h2 id="&#x5B89;&#x88C5;github-desktop"><a href="#&#x5B89;&#x88C5;GitHub-Desktop" class="headerlink" title="&#x5B89;&#x88C5;GitHub Desktop"></a>&#x5B89;&#x88C5;GitHub Desktop</h2><p>&#x76F4;&#x63A5;&#x4E0B;&#x8F7D;<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub Desketop</a>&#xFF0C;&#x5B89;&#x88C5;&#x5E76;&#x767B;&#x5F55;&#x5373;&#x53EF;</p>
+<h2 id="&#x5B89;&#x88C5;hexo"><a href="#&#x5B89;&#x88C5;hexo" class="headerlink" title="&#x5B89;&#x88C5;hexo"></a>&#x5B89;&#x88C5;hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>&#x81F3;&#x6B64;&#xFF0C;&#x5373;&#x53EF;&#x4F7F;&#x7528;hexo&#x642D;&#x5EFA;&#x7AD9;&#x70B9;&#x4E86;</p>
+<h2 id="&#x642D;&#x5EFA;&#x9ED8;&#x8BA4;&#x9875;&#x9762;"><a href="#&#x642D;&#x5EFA;&#x9ED8;&#x8BA4;&#x9875;&#x9762;" class="headerlink" title="&#x642D;&#x5EFA;&#x9ED8;&#x8BA4;&#x9875;&#x9762;"></a>&#x642D;&#x5EFA;&#x9ED8;&#x8BA4;&#x9875;&#x9762;</h2><p><strong>&#x5982;&#x679C;&#x4E0D;&#x662F;&#x8981;&#x5C06;&#x4F60;&#x7684;username.github.io&#x6574;&#x4E2A;&#x9875;&#x9762;&#x642D;&#x5EFA;&#x4E3A;&#x535A;&#x5BA2;&#x7AD9;&#x70B9;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4EE5;username.github.io&#x8FD9;&#x4E2A;repo&#x4F5C;&#x4E3A;&#x7AD9;&#x70B9;&#x90E8;&#x7F72;&#x7684;&#x76EE;&#x6807;&#x3002;&#x5982;&#x679C;&#x53EA;&#x662F;&#x8981;&#x642D;&#x5EFA;&#x535A;&#x5BA2;&#x7AD9;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;GitHub&#x4E0A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x53EB;blog&#x7684;repo&#xFF0C;&#x540E;&#x9762;&#x7684;_config.yml&#x914D;&#x7F6E;&#x7684;branch&#x5BF9;&#x5E94;gh-pages&#xFF0C;&#x4EE5;&#x540E;&#x90E8;&#x7F72;&#x7AD9;&#x70B9;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x201C;hexo deploy&#x201D;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x672C;&#x5730;&#x5185;&#x5BB9;push&#x5230;GitHub&#x4E0A;&#x53BB;&#x3002;</strong></p>
 <ol>
-<li><p>打开Git Shell，依次输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog # blog为博客目录，可以自定义；这条命令是用来使hexo自动添加站点需要的文件</span><br><span class="line">cd blog # 切换到刚才创建并初始化的存放博客文件的站点目录</span><br><span class="line">npm install # 安装包依赖</span><br></pre></td></tr></table></figure>
+<li><p>&#x6253;&#x5F00;Git Shell&#xFF0C;&#x4F9D;&#x6B21;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog # blog&#x4E3A;&#x535A;&#x5BA2;&#x76EE;&#x5F55;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#xFF1B;&#x8FD9;&#x6761;&#x547D;&#x4EE4;&#x662F;&#x7528;&#x6765;&#x4F7F;hexo&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x7AD9;&#x70B9;&#x9700;&#x8981;&#x7684;&#x6587;&#x4EF6;</span><br><span class="line">cd blog # &#x5207;&#x6362;&#x5230;&#x521A;&#x624D;&#x521B;&#x5EFA;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5B58;&#x653E;&#x535A;&#x5BA2;&#x6587;&#x4EF6;&#x7684;&#x7AD9;&#x70B9;&#x76EE;&#x5F55;</span><br><span class="line">npm install # &#x5B89;&#x88C5;&#x5305;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>至此，已经可以通过以下命令来搭建本地服务器，在浏览器中输入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 查看测试页面了</p>
+<li><p>&#x81F3;&#x6B64;&#xFF0C;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6765;&#x642D;&#x5EFA;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8F93;&#x5165; <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> &#x67E5;&#x770B;&#x6D4B;&#x8BD5;&#x9875;&#x9762;&#x4E86;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>PS：添加<code>-p</code>加端口号作为参数，可以自定义端口，更多命令可查看hexo文档的<a href="https://hexo.io/docs/commands.html" target="_blank" rel="external">commands</a>部分</p>
+<p>PS&#xFF1A;&#x6DFB;&#x52A0;<code>-p</code>&#x52A0;&#x7AEF;&#x53E3;&#x53F7;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x7AEF;&#x53E3;&#xFF0C;&#x66F4;&#x591A;&#x547D;&#x4EE4;&#x53EF;&#x67E5;&#x770B;hexo&#x6587;&#x6863;&#x7684;<a href="https://hexo.io/docs/commands.html" target="_blank" rel="external">commands</a>&#x90E8;&#x5206;</p>
 </li>
-<li><p>在上一步创建的blog目录下，找到<code>_config.yml</code>文件，用文本编辑器打开（建议用notedpad++等编辑器，而不是系统自带的notedpad），做如下修改:</p>
+<li><p>&#x5728;&#x4E0A;&#x4E00;&#x6B65;&#x521B;&#x5EFA;&#x7684;blog&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x627E;&#x5230;<code>_config.yml</code>&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x6253;&#x5F00;&#xFF08;&#x5EFA;&#x8BAE;&#x7528;notedpad++&#x7B49;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;notedpad&#xFF09;&#xFF0C;&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">      type: git</span><br><span class="line">      repo: https://github.com/uolcano/blog.git</span><br><span class="line">      branch: gh-pages</span><br></pre></td></tr></table></figure>
-<p>PS：这里的<code>repo</code>关键字对应站点部署在GitHub上的目标repo的git地址；<code>branch</code>关键字对应的分支分两种情况：</p>
+<p>PS&#xFF1A;&#x8FD9;&#x91CC;&#x7684;<code>repo</code>&#x5173;&#x952E;&#x5B57;&#x5BF9;&#x5E94;&#x7AD9;&#x70B9;&#x90E8;&#x7F72;&#x5728;GitHub&#x4E0A;&#x7684;&#x76EE;&#x6807;repo&#x7684;git&#x5730;&#x5740;&#xFF1B;<code>branch</code>&#x5173;&#x952E;&#x5B57;&#x5BF9;&#x5E94;&#x7684;&#x5206;&#x652F;&#x5206;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
 <ol>
-<li>就是上面示例的样子，我是要将另一个叫blog的仓库作为我的博客站，所以只需要当作项目demo站点。而内容push全部交给hexo，hexo根据这个<code>_config.yml</code>文件的<code>repo</code>和<code>branch</code>字段就会知道如何push到GitHub上去了。</li>
-<li>如果你是要将站点直接部署在username.github.io这个repo上，则修改为如下形式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">repo: https://github.com/uolcano/uolcano.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+<li>&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x7684;&#x6837;&#x5B50;&#xFF0C;&#x6211;&#x662F;&#x8981;&#x5C06;&#x53E6;&#x4E00;&#x4E2A;&#x53EB;blog&#x7684;&#x4ED3;&#x5E93;&#x4F5C;&#x4E3A;&#x6211;&#x7684;&#x535A;&#x5BA2;&#x7AD9;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x9700;&#x8981;&#x5F53;&#x4F5C;&#x9879;&#x76EE;demo&#x7AD9;&#x70B9;&#x3002;&#x800C;&#x5185;&#x5BB9;push&#x5168;&#x90E8;&#x4EA4;&#x7ED9;hexo&#xFF0C;hexo&#x6839;&#x636E;&#x8FD9;&#x4E2A;<code>_config.yml</code>&#x6587;&#x4EF6;&#x7684;<code>repo</code>&#x548C;<code>branch</code>&#x5B57;&#x6BB5;&#x5C31;&#x4F1A;&#x77E5;&#x9053;&#x5982;&#x4F55;push&#x5230;GitHub&#x4E0A;&#x53BB;&#x4E86;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x662F;&#x8981;&#x5C06;&#x7AD9;&#x70B9;&#x76F4;&#x63A5;&#x90E8;&#x7F72;&#x5728;username.github.io&#x8FD9;&#x4E2A;repo&#x4E0A;&#xFF0C;&#x5219;&#x4FEE;&#x6539;&#x4E3A;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;&#xFF1A;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">repo: https://github.com/uolcano/uolcano.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>我刚开始是对uolcano.github.io直接部署的，结果导致整个repo都被覆盖了，然后就只能delete repo再创建并且把本地的repo数据push到新建的uolcano.github.io，才保证了原有的内容。</p>
+<p>&#x6211;&#x521A;&#x5F00;&#x59CB;&#x662F;&#x5BF9;uolcano.github.io&#x76F4;&#x63A5;&#x90E8;&#x7F72;&#x7684;&#xFF0C;&#x7ED3;&#x679C;&#x5BFC;&#x81F4;&#x6574;&#x4E2A;repo&#x90FD;&#x88AB;&#x8986;&#x76D6;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EA;&#x80FD;delete repo&#x518D;&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x628A;&#x672C;&#x5730;&#x7684;repo&#x6570;&#x636E;push&#x5230;&#x65B0;&#x5EFA;&#x7684;uolcano.github.io&#xFF0C;&#x624D;&#x4FDD;&#x8BC1;&#x4E86;&#x539F;&#x6709;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
 </li>
-<li><p>一般在部署之前，都需要安装hexo-deployer-git，而后才能部署成功</p>
+<li><p>&#x4E00;&#x822C;&#x5728;&#x90E8;&#x7F72;&#x4E4B;&#x524D;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x5B89;&#x88C5;hexo-deployer-git&#xFF0C;&#x800C;&#x540E;&#x624D;&#x80FD;&#x90E8;&#x7F72;&#x6210;&#x529F;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<p>提示如下信息即表示部署成功，可以通过 <a href="http://uolcano.github.io/blog/">http://uolcano.github.io/blog/</a> 来访问我搭建的个人博客：</p>
+<p>&#x63D0;&#x793A;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#x5373;&#x8868;&#x793A;&#x90E8;&#x7F72;&#x6210;&#x529F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="http://uolcano.github.io/blog/">http://uolcano.github.io/blog/</a> &#x6765;&#x8BBF;&#x95EE;&#x6211;&#x642D;&#x5EFA;&#x7684;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO Deploty done: git</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>以后每次发文只需要进行如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章标题名&quot;</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy # 下面两条命令可以简写为 hexo g -d 或者 hexo d -g</span><br></pre></td></tr></table></figure>
-<p>PS：因为在<code>_config.yml</code>中的default_layout字段默认是<code>post</code>的，即表示你默认是以post的方式发文的，所以新建的文章文件，存放在blog/source/_posts目录下。而hexo有多种发布方式：“_posts”对应<code>post</code>这种发布方式，其他的还有<code>draft</code>和<code>page</code>。</p>
+<li><p>&#x4EE5;&#x540E;&#x6BCF;&#x6B21;&#x53D1;&#x6587;&#x53EA;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;&#x6587;&#x7AE0;&#x6807;&#x9898;&#x540D;&quot;</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy # &#x540E;&#x9762;&#x8FD9;&#x4E24;&#x6761;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A; hexo g -d &#x6216;&#x8005; hexo d -g</span><br></pre></td></tr></table></figure>
+<p>PS&#xFF1A;&#x56E0;&#x4E3A;&#x5728;<code>_config.yml</code>&#x4E2D;&#x7684;default_layout&#x5B57;&#x6BB5;&#x9ED8;&#x8BA4;&#x662F;<code>post</code>&#x7684;&#xFF0C;&#x5373;&#x8868;&#x793A;&#x4F60;&#x9ED8;&#x8BA4;&#x662F;&#x4EE5;post&#x7684;&#x65B9;&#x5F0F;&#x53D1;&#x6587;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x7AE0;&#x6587;&#x4EF6;&#xFF0C;&#x5B58;&#x653E;&#x5728;blog/source/_posts&#x76EE;&#x5F55;&#x4E0B;&#x3002;&#x800C;hexo&#x6709;&#x591A;&#x79CD;&#x53D1;&#x5E03;&#x65B9;&#x5F0F;&#xFF1A;&#x201C;_posts&#x201D;&#x5BF9;&#x5E94;<code>post</code>&#x8FD9;&#x79CD;&#x53D1;&#x5E03;&#x65B9;&#x5F0F;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8FD8;&#x6709;<code>draft</code>&#x548C;<code>page</code>&#x3002;</p>
 </li>
 </ol>
-<h3 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt; # 创建并初始化一个站点文件夹</span><br><span class="line">hexo clean # 用于主题切换等涉及到站点整体布局效果改变时清除hexo原有缓存</span><br><span class="line">hexo new &apos;article title&apos; # 新增一篇文章</span><br><span class="line">hexo generate # 可以简写为 hexo g ，为文章自动生成静态页面的文件</span><br><span class="line">hexo server # 可简写为 hexo s ，开启本地服务器，测试静态页面的效果</span><br><span class="line">hexo deploy # 可简写为 hexo d ，将本地页面部署到GitHub Pages上</span><br><span class="line">hexo generate -d # 生成静态页面的文件并直接部署</span><br><span class="line">hexo deploy -g # 跟上一条命令相同作用</span><br></pre></td></tr></table></figure>
-<p>更多的信息建议去查hexo<a href="https://hexo.io/docs/index.html" target="_blank" rel="external">文档</a>和关注hexo的GitHub <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">issues</a>。</p>
-<h2 id="bonus"><a href="#bonus" class="headerlink" title="bonus"></a>bonus</h2><p>如果是需要给你的站点安装NexT主题可以在<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">这里</a>得到帮助。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<h2 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt; # &#x521B;&#x5EFA;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7AD9;&#x70B9;&#x6587;&#x4EF6;&#x5939;</span><br><span class="line">hexo clean # &#x7528;&#x4E8E;&#x4E3B;&#x9898;&#x5207;&#x6362;&#x7B49;&#x6D89;&#x53CA;&#x5230;&#x7AD9;&#x70B9;&#x6574;&#x4F53;&#x5E03;&#x5C40;&#x6548;&#x679C;&#x6539;&#x53D8;&#x65F6;&#x6E05;&#x9664;hexo&#x539F;&#x6709;&#x7F13;&#x5B58;</span><br><span class="line">hexo new &apos;article title&apos; # &#x65B0;&#x589E;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;</span><br><span class="line">hexo generate # &#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A; hexo g &#xFF0C;&#x4E3A;&#x6587;&#x7AE0;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6587;&#x4EF6;</span><br><span class="line">hexo server # &#x53EF;&#x7B80;&#x5199;&#x4E3A; hexo s &#xFF0C;&#x5F00;&#x542F;&#x672C;&#x5730;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6D4B;&#x8BD5;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6548;&#x679C;</span><br><span class="line">hexo deploy # &#x53EF;&#x7B80;&#x5199;&#x4E3A; hexo d &#xFF0C;&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub Pages&#x4E0A;</span><br><span class="line">hexo generate -d # &#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x76F4;&#x63A5;&#x90E8;&#x7F72;</span><br><span class="line">hexo deploy -g # &#x8DDF;&#x4E0A;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#x76F8;&#x540C;&#x4F5C;&#x7528;</span><br></pre></td></tr></table></figure>
+<p>&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#x5EFA;&#x8BAE;&#x53BB;&#x67E5;hexo<a href="https://hexo.io/docs/index.html" target="_blank" rel="external">&#x6587;&#x6863;</a>&#x548C;&#x5173;&#x6CE8;hexo&#x7684;GitHub <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">issues</a>&#x3002;</p>
+<h2 id="bonus"><a href="#bonus" class="headerlink" title="bonus"></a>bonus</h2><p>&#x5982;&#x679C;&#x662F;&#x9700;&#x8981;&#x7ED9;&#x4F60;&#x7684;&#x7AD9;&#x70B9;&#x5B89;&#x88C5;NexT&#x4E3B;&#x9898;&#x53EF;&#x4EE5;&#x5728;<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">&#x8FD9;&#x91CC;</a>&#x5F97;&#x5230;&#x5E2E;&#x52A9;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
 <li><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">GitHub hexo</a></li>
 <li><a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">GitHub hexo-deployer-git</a></li>
 <li><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">hexo docs</a></li>
-<li><a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">如何利用GitHub Pages和Hexo快速搭建个人博客</a></li>
+<li><a href="http://sunwhut.com/2015/10/30/buildBlog/" target="_blank" rel="external">&#x5982;&#x4F55;&#x5229;&#x7528;GitHub Pages&#x548C;Hexo&#x5FEB;&#x901F;&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</a></li>
 </ul>
 
       
@@ -183,68 +282,84 @@
     </header>
     <div class="entry">
       
-        <h2 id="搭建项目的demo页面"><a href="#搭建项目的demo页面" class="headerlink" title="搭建项目的demo页面"></a>搭建项目的demo页面</h2><ol>
-<li><p>将项目的展示页面文件放在repo的根目录下，并且命名为<code>index.html</code>，必须的.html为扩展名。</p>
+        <!-- toc -->
+<ul>
+<li><a href="#&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;demo&#x9875;&#x9762;">&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;demo&#x9875;&#x9762;</a></li>
+<li><a href="#&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;">&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</a><ul>
+<li><a href="#&#x5229;&#x7528;jekyll&#x642D;&#x5EFA;">&#x5229;&#x7528;jekyll&#x642D;&#x5EFA;</a><ul>
+<li><a href="#&#x65B9;&#x6CD5;&#x4E00;windows&#x4E0B;&#x901A;&#x8FC7;rubygems&#x5B89;&#x88C5;jekyll">&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;rubygems&#x5B89;&#x88C5;jekyll</a></li>
+<li><a href="#&#x65B9;&#x6CD5;&#x4E8C;windows&#x4E0B;&#x901A;&#x8FC7;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll">&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll</a></li>
+<li><a href="#&#x65B9;&#x6CD5;&#x4E09;windows&#x4E0B;&#x901A;&#x8FC7;vagrant&#x865A;&#x62DF;linux&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;jekyll">&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;vagrant&#x865A;&#x62DF;Linux&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;jekyll</a></li>
+</ul>
 </li>
-<li><p>然后打开git shell，执行以下命令：</p>
+<li><a href="#&#x5229;&#x7528;hexo&#x642D;&#x5EFA;">&#x5229;&#x7528;hexo&#x642D;&#x5EFA;</a></li>
+</ul>
+</li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;demo&#x9875;&#x9762;"><a href="#&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;demo&#x9875;&#x9762;" class="headerlink" title="&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;demo&#x9875;&#x9762;"></a>&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x7684;demo&#x9875;&#x9762;</h2><ol>
+<li><p>&#x5C06;&#x9879;&#x76EE;&#x7684;&#x5C55;&#x793A;&#x9875;&#x9762;&#x6587;&#x4EF6;&#x653E;&#x5728;repo&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x5E76;&#x4E14;&#x547D;&#x540D;&#x4E3A;<code>index.html</code>&#xFF0C;&#x5FC5;&#x987B;&#x7684;.html&#x4E3A;&#x6269;&#x5C55;&#x540D;&#x3002;</p>
+</li>
+<li><p>&#x7136;&#x540E;&#x6253;&#x5F00;git shell&#xFF0C;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b gh-pages</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>PS：这里创建了一个名叫gh-pages的分支，因为github pages默认是为这个分支的创建页面的</p>
-<p>[√]done！自此即可通过 <a href="http://userName.github.io/repoName" target="_blank" rel="external">http://userName.github.io/repoName</a> 访问你的项目demo页面了。</p>
-<h2 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h2><p><strong>你可以选择GitHub网页版傻瓜式地搭建，但是文字编辑和本地测试肯定没有本地的方便，所以一般都是通过jekyll(github官方推荐的，适合Mac和Linux，Windows下会很麻烦)或者hexo(比较容易搭建)来自动生成静态页面，而博客作者只需要编辑MarkDown文本，以及少数的几条命令行即可将自己的文章快速部署到GitHub Pages上去。</strong></p>
-<h3 id="利用jekyll搭建"><a href="#利用jekyll搭建" class="headerlink" title="利用jekyll搭建"></a>利用jekyll搭建</h3><h4 id="方法一：Windows下通过rubygems安装jekyll"><a href="#方法一：Windows下通过rubygems安装jekyll" class="headerlink" title="方法一：Windows下通过rubygems安装jekyll"></a>方法一：Windows下通过rubygems安装jekyll</h4><p><strong>建议在对自己的网络状况有信心的情况下采用。我是顺利安装完rubygems后，bundle install出问题，后面的内容有参考其他指引性文章，只能转而用vagrant虚拟机装了ubuntu系统后配置的jekyll。觉得这个方法不靠谱的可以skip到方法三或者改用hexo</strong></p>
+<p>PS&#xFF1A;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x53EB;gh-pages&#x7684;&#x5206;&#x652F;&#xFF0C;&#x56E0;&#x4E3A;github pages&#x9ED8;&#x8BA4;&#x662F;&#x4E3A;&#x8FD9;&#x4E2A;&#x5206;&#x652F;&#x7684;&#x521B;&#x5EFA;&#x9875;&#x9762;&#x7684;</p>
+<p>[&#x221A;]done&#xFF01;&#x81EA;&#x6B64;&#x5373;&#x53EF;&#x901A;&#x8FC7; <a href="http://userName.github.io/repoName" target="_blank" rel="external">http://userName.github.io/repoName</a> &#x8BBF;&#x95EE;&#x4F60;&#x7684;&#x9879;&#x76EE;demo&#x9875;&#x9762;&#x4E86;&#x3002;</p>
+<h2 id="&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"><a href="#&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;" class="headerlink" title="&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;"></a>&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;</h2><p><strong>&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;GitHub&#x7F51;&#x9875;&#x7248;&#x50BB;&#x74DC;&#x5F0F;&#x5730;&#x642D;&#x5EFA;&#xFF0C;&#x4F46;&#x662F;&#x6587;&#x5B57;&#x7F16;&#x8F91;&#x548C;&#x672C;&#x5730;&#x6D4B;&#x8BD5;&#x80AF;&#x5B9A;&#x6CA1;&#x6709;&#x672C;&#x5730;&#x7684;&#x65B9;&#x4FBF;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x901A;&#x8FC7;jekyll(github&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x7684;&#xFF0C;&#x9002;&#x5408;Mac&#x548C;Linux&#xFF0C;Windows&#x4E0B;&#x4F1A;&#x5F88;&#x9EBB;&#x70E6;)&#x6216;&#x8005;hexo(&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x642D;&#x5EFA;)&#x6765;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#xFF0C;&#x800C;&#x535A;&#x5BA2;&#x4F5C;&#x8005;&#x53EA;&#x9700;&#x8981;&#x7F16;&#x8F91;MarkDown&#x6587;&#x672C;&#xFF0C;&#x4EE5;&#x53CA;&#x5C11;&#x6570;&#x7684;&#x51E0;&#x6761;&#x547D;&#x4EE4;&#x884C;&#x5373;&#x53EF;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x6587;&#x7AE0;&#x5FEB;&#x901F;&#x90E8;&#x7F72;&#x5230;GitHub Pages&#x4E0A;&#x53BB;&#x3002;</strong></p>
+<h3 id="&#x5229;&#x7528;jekyll&#x642D;&#x5EFA;"><a href="#&#x5229;&#x7528;jekyll&#x642D;&#x5EFA;" class="headerlink" title="&#x5229;&#x7528;jekyll&#x642D;&#x5EFA;"></a>&#x5229;&#x7528;jekyll&#x642D;&#x5EFA;</h3><h4 id="&#x65B9;&#x6CD5;&#x4E00;windows&#x4E0B;&#x901A;&#x8FC7;rubygems&#x5B89;&#x88C5;jekyll"><a href="#&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;rubygems&#x5B89;&#x88C5;jekyll" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;rubygems&#x5B89;&#x88C5;jekyll"></a>&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;rubygems&#x5B89;&#x88C5;jekyll</h4><p><strong>&#x5EFA;&#x8BAE;&#x5728;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;&#x7F51;&#x7EDC;&#x72B6;&#x51B5;&#x6709;&#x4FE1;&#x5FC3;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x91C7;&#x7528;&#x3002;&#x6211;&#x662F;&#x987A;&#x5229;&#x5B89;&#x88C5;&#x5B8C;rubygems&#x540E;&#xFF0C;bundle install&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x6709;&#x53C2;&#x8003;&#x5176;&#x4ED6;&#x6307;&#x5F15;&#x6027;&#x6587;&#x7AE0;&#xFF0C;&#x53EA;&#x80FD;&#x8F6C;&#x800C;&#x7528;vagrant&#x865A;&#x62DF;&#x673A;&#x88C5;&#x4E86;ubuntu&#x7CFB;&#x7EDF;&#x540E;&#x914D;&#x7F6E;&#x7684;jekyll&#x3002;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0D;&#x9760;&#x8C31;&#x7684;&#x53EF;&#x4EE5;skip&#x5230;&#x65B9;&#x6CD5;&#x4E09;&#x6216;&#x8005;&#x6539;&#x7528;hexo</strong></p>
 <ol>
-<li><p>去 <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> 下载rubyinstaller.exe和DevKit,两个要对应版本，且对应操作系统</p>
+<li><p>&#x53BB; <a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> &#x4E0B;&#x8F7D;rubyinstaller.exe&#x548C;DevKit,&#x4E24;&#x4E2A;&#x8981;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#xFF0C;&#x4E14;&#x5BF9;&#x5E94;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</p>
 </li>
-<li><p>执行rubyinstaller.exe，安装ruby</p>
+<li><p>&#x6267;&#x884C;rubyinstaller.exe&#xFF0C;&#x5B89;&#x88C5;ruby</p>
 </li>
-<li><p>将DevKit执行，并解到一个指定命名文件夹，如：RubyDevKit；管理员权限打开cmd执行<code>ruby dk.rb init</code>；执行<code>dk.rb install</code></p>
+<li><p>&#x5C06;DevKit&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x89E3;&#x5230;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x547D;&#x540D;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5982;&#xFF1A;RubyDevKit&#xFF1B;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x6253;&#x5F00;cmd&#x6267;&#x884C;<code>ruby dk.rb init</code>&#xFF1B;&#x6267;&#x884C;<code>dk.rb install</code></p>
 </li>
-<li><p>去 <a href="https://rubygems.org/pages/download" target="_blank" rel="external">https://rubygems.org/pages/download</a> 下载RubyGems，解压缩出来的文件夹，如：rubygems；管理员权限重新打开cmd，执行<code>cd rubygems</code>，执行<code>ruby setup.rb</code></p>
+<li><p>&#x53BB; <a href="https://rubygems.org/pages/download" target="_blank" rel="external">https://rubygems.org/pages/download</a> &#x4E0B;&#x8F7D;RubyGems&#xFF0C;&#x89E3;&#x538B;&#x7F29;&#x51FA;&#x6765;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5982;&#xFF1A;rubygems&#xFF1B;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x91CD;&#x65B0;&#x6253;&#x5F00;cmd&#xFF0C;&#x6267;&#x884C;<code>cd rubygems</code>&#xFF0C;&#x6267;&#x884C;<code>ruby setup.rb</code></p>
 </li>
-<li><p>修改rubygems的源为淘宝源：<br><code>gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</code><br>淘宝的源不行的话就用ruby-china的源 <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a></p>
+<li><p>&#x4FEE;&#x6539;rubygems&#x7684;&#x6E90;&#x4E3A;&#x6DD8;&#x5B9D;&#x6E90;&#xFF1A;<br><code>gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</code><br>&#x6DD8;&#x5B9D;&#x7684;&#x6E90;&#x4E0D;&#x884C;&#x7684;&#x8BDD;&#x5C31;&#x7528;ruby-china&#x7684;&#x6E90; <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a></p>
 </li>
-<li><p>如果出现证书失败，就去下载一个curl，放在一个目录下，cmd执行<code>curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem</code><br>将下载的cacert.pem移到ruby的安装目录下的bin文件夹里，并且在环境变量中（应该是系统变量）新建SSL_CERT_FILE，值为移动后的cacert.pem的绝对路径</p>
+<li><p>&#x5982;&#x679C;&#x51FA;&#x73B0;&#x8BC1;&#x4E66;&#x5931;&#x8D25;&#xFF0C;&#x5C31;&#x53BB;&#x4E0B;&#x8F7D;&#x4E00;&#x4E2A;curl&#xFF0C;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;cmd&#x6267;&#x884C;<code>curl http://curl.haxx.se/ca/cacert.pem -o cacert.pem</code><br>&#x5C06;&#x4E0B;&#x8F7D;&#x7684;cacert.pem&#x79FB;&#x5230;ruby&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E0B;&#x7684;bin&#x6587;&#x4EF6;&#x5939;&#x91CC;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#xFF08;&#x5E94;&#x8BE5;&#x662F;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#xFF09;&#x65B0;&#x5EFA;SSL_CERT_FILE&#xFF0C;&#x503C;&#x4E3A;&#x79FB;&#x52A8;&#x540E;&#x7684;cacert.pem&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</p>
 </li>
-<li><p>安装bundler</p>
+<li><p>&#x5B89;&#x88C5;bundler</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在创建好的作为博客的repo下，新建一个文件，命名为Gemfile，里面的内容是：</p>
+<li><p>&#x5728;&#x521B;&#x5EFA;&#x597D;&#x7684;&#x4F5C;&#x4E3A;&#x535A;&#x5BA2;&#x7684;repo&#x4E0B;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x547D;&#x540D;&#x4E3A;Gemfile&#xFF0C;&#x91CC;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x662F;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://ruby.taobao.org&apos;</span><br><span class="line">gem &apos;github-pages&apos;, group: :jekyll_plugins</span><br></pre></td></tr></table></figure>
-<p>国内使用淘宝的源 <a href="https://ruby.taobao.org" target="_blank" rel="external">https://ruby.taobao.org</a> 比较快，故未使用 <a href="https://rubygems.org" target="_blank" rel="external">https://rubygems.org</a> 。当然国内的用 <a href="https://gems.ruby-china.org" target="_blank" rel="external">https://gems.ruby-china.org</a> 也是一个选择。<br>要注意，这里要保证在本地已经安装并登录了GitHub，可以直接下载<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub Desketop</a>安装登陆即可。</p>
+<p>&#x56FD;&#x5185;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;&#x6E90; <a href="https://ruby.taobao.org" target="_blank" rel="external">https://ruby.taobao.org</a> &#x6BD4;&#x8F83;&#x5FEB;&#xFF0C;&#x6545;&#x672A;&#x4F7F;&#x7528; <a href="https://rubygems.org" target="_blank" rel="external">https://rubygems.org</a> &#x3002;&#x5F53;&#x7136;&#x56FD;&#x5185;&#x7684;&#x7528; <a href="https://gems.ruby-china.org" target="_blank" rel="external">https://gems.ruby-china.org</a> &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x3002;<br>&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x91CC;&#x8981;&#x4FDD;&#x8BC1;&#x5728;&#x672C;&#x5730;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x5E76;&#x767B;&#x5F55;&#x4E86;GitHub&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4E0B;&#x8F7D;<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub Desketop</a>&#x5B89;&#x88C5;&#x767B;&#x9646;&#x5373;&#x53EF;&#x3002;</p>
 </li>
-<li><p>安装jekyll和相关依赖</p>
+<li><p>&#x5B89;&#x88C5;jekyll&#x548C;&#x76F8;&#x5173;&#x4F9D;&#x8D56;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
-<p>安装完成后，会提示<code>Thank you for installing github-pages!</code>等</p>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F1A;&#x63D0;&#x793A;<code>Thank you for installing github-pages!</code>&#x7B49;</p>
 </li>
-<li><p>将本地页面部署到github上去，执行<code>bundle update</code>或者<code>bundle update github-pages</code></p>
+<li><p>&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github&#x4E0A;&#x53BB;&#xFF0C;&#x6267;&#x884C;<code>bundle update</code>&#x6216;&#x8005;<code>bundle update github-pages</code></p>
 </li>
-<li><p>在Ruby\lib\ruby\gems类似这样的目录下找到对应版本下的gems目录，找到jekyll目录的lib\site_template，这里有个_config.yml文件，用文本编辑器（建议用notepad++等，而不是系统自带的notedpad）打开，在# Build settings字段下添加：</p>
+<li><p>&#x5728;Ruby\lib\ruby\gems&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#x4E0B;&#x7684;gems&#x76EE;&#x5F55;&#xFF0C;&#x627E;&#x5230;jekyll&#x76EE;&#x5F55;&#x7684;lib\site_template&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;_config.yml&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#xFF08;&#x5EFA;&#x8BAE;&#x7528;notepad++&#x7B49;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;notedpad&#xFF09;&#x6253;&#x5F00;&#xFF0C;&#x5728;# Build settings&#x5B57;&#x6BB5;&#x4E0B;&#x6DFB;&#x52A0;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">markdown: kramdown</span><br><span class="line">highlighter: rouge</span><br></pre></td></tr></table></figure>
-<p>高亮需要安装<strong>rouge</strong></p>
+<p>&#x9AD8;&#x4EAE;&#x9700;&#x8981;&#x5B89;&#x88C5;<strong>rouge</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rouge</span><br></pre></td></tr></table></figure>
-<p>另外，如果要以<strong>pygments</strong>作为高亮风格，还需要安装<a href="http://www.python.org/download/" target="_blank" rel="external">python</a>，以及<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="external">pip</a>，转到get-pip.py的下载目录执行：</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x4EE5;<strong>pygments</strong>&#x4F5C;&#x4E3A;&#x9AD8;&#x4EAE;&#x98CE;&#x683C;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5B89;&#x88C5;<a href="http://www.python.org/download/" target="_blank" rel="external">python</a>&#xFF0C;&#x4EE5;&#x53CA;<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="external">pip</a>&#xFF0C;&#x8F6C;&#x5230;get-pip.py&#x7684;&#x4E0B;&#x8F7D;&#x76EE;&#x5F55;&#x6267;&#x884C;&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
-<p>安装pygments</p>
+<p>&#x5B89;&#x88C5;pygments</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install Pygments</span><br></pre></td></tr></table></figure>
-<p>然后在_config.yml文件中，设置为<code>highlighter: pygments</code>。</p>
-<p>jekyll的高亮使用语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% highlight bash %&#125;</span><br><span class="line">$ gem install bundler</span><br><span class="line">&#123;% endhighlight %&#125;</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x5728;_config.yml&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A;<code>highlighter: pygments</code>&#x3002;</p>
+<p>jekyll&#x7684;&#x9AD8;&#x4EAE;&#x4F7F;&#x7528;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">{% highlight bash %}</span><br><span class="line">$ gem install bundler</span><br><span class="line">{% endhighlight %}</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="方法二：Windows下通过chocolatey快速安装jekyll"><a href="#方法二：Windows下通过chocolatey快速安装jekyll" class="headerlink" title="方法二：Windows下通过chocolatey快速安装jekyll"></a>方法二：Windows下通过chocolatey快速安装jekyll</h4><ul>
-<li><a href="/blog/2016/04/10/在Windows下，利用chocolatey快速安装jekyll（无bundler）/">在Windows下，利用chocolatey快速安装jekyll（无bundler）</a><br><strong>注意</strong>：要确保在本地已经安装并登录了GitHub。</li>
+<h4 id="&#x65B9;&#x6CD5;&#x4E8C;windows&#x4E0B;&#x901A;&#x8FC7;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll"><a href="#&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll"></a>&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll</h4><ul>
+<li><a href="/blog/2016/04/10/&#x5728;Windows&#x4E0B;&#xFF0C;&#x5229;&#x7528;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll&#xFF08;&#x65E0;bundler&#xFF09;/">&#x5728;Windows&#x4E0B;&#xFF0C;&#x5229;&#x7528;chocolatey&#x5FEB;&#x901F;&#x5B89;&#x88C5;jekyll&#xFF08;&#x65E0;bundler&#xFF09;</a><br><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x8981;&#x786E;&#x4FDD;&#x5728;&#x672C;&#x5730;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x5E76;&#x767B;&#x5F55;&#x4E86;GitHub&#x3002;</li>
 </ul>
-<h4 id="方法三：Windows下通过vagrant虚拟Linux系统安装jekyll"><a href="#方法三：Windows下通过vagrant虚拟Linux系统安装jekyll" class="headerlink" title="方法三：Windows下通过vagrant虚拟Linux系统安装jekyll"></a>方法三：Windows下通过vagrant虚拟Linux系统安装jekyll</h4><ul>
+<h4 id="&#x65B9;&#x6CD5;&#x4E09;windows&#x4E0B;&#x901A;&#x8FC7;vagrant&#x865A;&#x62DF;linux&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;jekyll"><a href="#&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;vagrant&#x865A;&#x62DF;Linux&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;jekyll" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;vagrant&#x865A;&#x62DF;Linux&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;jekyll"></a>&#x65B9;&#x6CD5;&#x4E09;&#xFF1A;Windows&#x4E0B;&#x901A;&#x8FC7;vagrant&#x865A;&#x62DF;Linux&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;jekyll</h4><ul>
 <li><a href="/blog/2016/04/10/Install-Linux-Terminal-using-Vagrant-under-Windows/">Install Linux Terminal using Vagrant under Windows</a></li>
 <li><a href="/blog/2016/04/10/Build-Site-on-GitHub-Pages-by-jekyll-under-Linux/">Build Site on GitHub Pages by jekyll under Linux</a></li>
 </ul>
-<h3 id="利用hexo搭建"><a href="#利用hexo搭建" class="headerlink" title="利用hexo搭建"></a>利用hexo搭建</h3><ul>
-<li><a href="/blog/2016/04/10/在Windows下，利用hexo-GitHub-Pages快速搭建个人站点/">在Windows下，利用hexo+GitHub Pages快速搭建个人站点</a></li>
+<h3 id="&#x5229;&#x7528;hexo&#x642D;&#x5EFA;"><a href="#&#x5229;&#x7528;hexo&#x642D;&#x5EFA;" class="headerlink" title="&#x5229;&#x7528;hexo&#x642D;&#x5EFA;"></a>&#x5229;&#x7528;hexo&#x642D;&#x5EFA;</h3><ul>
+<li><a href="/blog/2016/04/10/&#x5728;Windows&#x4E0B;&#xFF0C;&#x5229;&#x7528;hexo-GitHub-Pages&#x5FEB;&#x901F;&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x7AD9;&#x70B9;/">&#x5728;Windows&#x4E0B;&#xFF0C;&#x5229;&#x7528;hexo+GitHub Pages&#x5FEB;&#x901F;&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x7AD9;&#x70B9;</a></li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">一步步在GitHub上创建博客主页-最新版</a></li>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
+<li><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">&#x4E00;&#x6B65;&#x6B65;&#x5728;GitHub&#x4E0A;&#x521B;&#x5EFA;&#x535A;&#x5BA2;&#x4E3B;&#x9875;-&#x6700;&#x65B0;&#x7248;</a></li>
 <li><a href="http://jekyll-windows.juthilo.com/" target="_blank" rel="external">Run Jekyll on Windows</a></li>
 <li><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">Setting up your GitHub Pages site locally with Jekyll
 </a></li>
@@ -281,43 +396,40 @@
     </header>
     <div class="entry">
       
-        <h2 id="前序安装"><a href="#前序安装" class="headerlink" title="前序安装"></a>前序安装</h2><ol>
-<li>安装ruby</li>
-<li>安装rubygems</li>
-<li>安装bundler</li>
-<li>安装和配置git</li>
-<li>安装nodejs</li>
+        <!-- toc -->
+<ul>
+<li><a href="#&#x524D;&#x5E8F;&#x5B89;&#x88C5;">&#x524D;&#x5E8F;&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;">&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;</a></li>
+<li><a href="#&#x914D;&#x7F6E;gemfile">&#x914D;&#x7F6E;Gemfile</a></li>
+<li><a href="#&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;">&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;</a></li>
+<li><a href="#&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;">&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;</a></li>
+<li><a href="#&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;">&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;</a></li>
+<li><a href="#&#x5728;github&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;">&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;</a></li>
+<li><a href="#&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github">&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x524D;&#x5E8F;&#x5B89;&#x88C5;"><a href="#&#x524D;&#x5E8F;&#x5B89;&#x88C5;" class="headerlink" title="&#x524D;&#x5E8F;&#x5B89;&#x88C5;"></a>&#x524D;&#x5E8F;&#x5B89;&#x88C5;</h2><ol>
+<li>&#x5B89;&#x88C5;ruby</li>
+<li>&#x5B89;&#x88C5;rubygems</li>
+<li>&#x5B89;&#x88C5;bundler</li>
+<li>&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;git</li>
+<li>&#x5B89;&#x88C5;nodejs</li>
 </ol>
-<p>可以参考我的这篇文章<a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04</a></p>
-<h2 id="创建本地repo和安装配置jekyll"><a href="#创建本地repo和安装配置jekyll" class="headerlink" title="创建本地repo和安装配置jekyll"></a>创建本地repo和安装配置jekyll</h2><ol>
-<li><p>切换到用于存git repo的目录下，初始化一个用于jekyll搭建静态页面的repo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ./git</span><br><span class="line">git init blog-by-jekyll # 本地创建并初始化一个repo</span><br><span class="line">cd blog-by-jekyll # 切换到这个repo</span><br><span class="line">git checkout -b gh-pages # 创建并切换到gh-pages分支，用于默认在github自动搭建页面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在这个repo下，<code>vim Gemfile</code>，创建一个叫做Gemfile的文件，注意无扩展名，输入一下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://ruby.taobao.org&apos;</span><br><span class="line">gem &apos;github-pages&apos;, group: :jekyll_plugins</span><br></pre></td></tr></table></figure>
-<p>国内使用淘宝的源<a href="https://ruby.taobao.org比较快，故未使用https://rubygems.org。当然国内的用https://gems.ruby-china.org也是一个选择。" target="_blank" rel="external">https://ruby.taobao.org比较快，故未使用https://rubygems.org。当然国内的用https://gems.ruby-china.org也是一个选择。</a></p>
-</li>
-<li><p>安装jekyll和其他依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
-<p>安装完成后，会提示<code>Thank you for installing github-pages!</code>blablablabla~</p>
-</li>
-<li><p>生成jekyll静态页面的模版</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll new . --force</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启静态站的本地http服务，用于本地查看站点效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll serve</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在GitHub的页面New repository，只需要给repo取名为本地git下的repo名同名，如：blog-by-jekyll，其他都不选，直接Create repository。回到终端，以此输入一下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:uolcano/blog-by-jekyll.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &apos;first blog by jekyll&apos;</span><br><span class="line">git push origin gh-pages</span><br></pre></td></tr></table></figure>
-<p>由于在Linux下的git是通过生成ssh密钥来与GitHub账号关联的，所以需要用SSH来push。什么，你说SSH协议的git地址在哪拷贝？就在repo主页的HTTPS选项的旁边或者通过下拉菜单选择</p>
-</li>
-<li><p>将本地页面部署到GitHub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle update github-pages</span><br></pre></td></tr></table></figure>
-<p>可以简写为<code>bundle update</code></p>
-</li>
-</ol>
-<p>最后，通过 <a href="http://uolcano.github.io/blog-by-jekyll/">http://uolcano.github.io/blog-by-jekyll/</a> 就可以访问jekyll自动生成的页面了。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">一步步在GitHub上创建博客主页-最新版</a><br><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">Setting up your GitHub Pages site locally with Jekyll</a><br><a href="https://help.github.com/articles/configuring-jekyll/" target="_blank" rel="external">Configuring Jekyll</a></p>
+<p>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6211;&#x7684;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;<a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04</a></p>
+<h2 id="&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;"><a href="#&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;" class="headerlink" title="&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;"></a>&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;</h2><p>&#x5207;&#x6362;&#x5230;&#x7528;&#x4E8E;&#x5B58;git repo&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;jekyll&#x642D;&#x5EFA;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;repo<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ./git</span><br><span class="line">git init blog-by-jekyll # &#x672C;&#x5730;&#x521B;&#x5EFA;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;repo</span><br><span class="line">cd blog-by-jekyll # &#x5207;&#x6362;&#x5230;&#x8FD9;&#x4E2A;repo</span><br><span class="line">git checkout -b gh-pages # &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5230;gh-pages&#x5206;&#x652F;&#xFF0C;&#x7528;&#x4E8E;&#x9ED8;&#x8BA4;&#x5728;github&#x81EA;&#x52A8;&#x642D;&#x5EFA;&#x9875;&#x9762;</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x914D;&#x7F6E;gemfile"><a href="#&#x914D;&#x7F6E;Gemfile" class="headerlink" title="&#x914D;&#x7F6E;Gemfile"></a>&#x914D;&#x7F6E;Gemfile</h2><p>&#x5728;&#x8FD9;&#x4E2A;repo&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;<code>vim Gemfile</code>&#x547D;&#x4EE4;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EB;&#x505A;Gemfile&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x6CE8;&#x610F;&#x65E0;&#x6269;&#x5C55;&#x540D;&#xFF0C;&#x8F93;&#x5165;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://ruby.taobao.org&apos;</span><br><span class="line">gem &apos;github-pages&apos;, group: :jekyll_plugins</span><br></pre></td></tr></table></figure></p>
+<p>  &#x56FD;&#x5185;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;&#x6E90;<a href="https://ruby.taobao.org&#x6BD4;&#x8F83;&#x5FEB;&#xFF0C;&#x6545;&#x672A;&#x4F7F;&#x7528;https://rubygems.org&#x3002;&#x5F53;&#x7136;&#x56FD;&#x5185;&#x7684;&#x7528;https://gems.ruby-china.org&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x3002;" target="_blank" rel="external">https://ruby.taobao.org&#x6BD4;&#x8F83;&#x5FEB;&#xFF0C;&#x6545;&#x672A;&#x4F7F;&#x7528;https://rubygems.org&#x3002;&#x5F53;&#x7136;&#x56FD;&#x5185;&#x7684;&#x7528;https://gems.ruby-china.org&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x3002;</a></p>
+<h2 id="&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;"><a href="#&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;" class="headerlink" title="&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;"></a>&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<p>  &#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F1A;&#x63D0;&#x793A;<code>Thank you for installing github-pages!</code>blablablabla~</p>
+<h2 id="&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;"><a href="#&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;" class="headerlink" title="&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;"></a>&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll new . --force</span><br></pre></td></tr></table></figure>
+<h2 id="&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;"><a href="#&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;" class="headerlink" title="&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;"></a>&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;</h2><p>&#x7528;&#x4E8E;&#x5728;&#x672C;&#x5730;&#x67E5;&#x770B;&#x7AD9;&#x70B9;&#x6548;&#x679C;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll serve</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x5728;github&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;"><a href="#&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;" class="headerlink" title="&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;"></a>&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;</h2><p>&#x5728;GitHub&#x7684;&#x9875;&#x9762;New repository&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7ED9;repo&#x53D6;&#x540D;&#x4E3A;&#x672C;&#x5730;git&#x4E0B;&#x7684;repo&#x540D;&#x540C;&#x540D;&#xFF0C;&#x5982;&#xFF1A;blog-by-jekyll&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x4E0D;&#x9009;&#xFF0C;&#x76F4;&#x63A5;Create repository&#x3002;&#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x4EE5;&#x6B64;&#x8F93;&#x5165;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:uolcano/blog-by-jekyll.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &apos;first blog by jekyll&apos;</span><br><span class="line">git push origin gh-pages</span><br></pre></td></tr></table></figure></p>
+<p>  &#x7531;&#x4E8E;&#x5728;Linux&#x4E0B;&#x7684;git&#x662F;&#x901A;&#x8FC7;&#x751F;&#x6210;ssh&#x5BC6;&#x94A5;&#x6765;&#x4E0E;GitHub&#x8D26;&#x53F7;&#x5173;&#x8054;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x7528;SSH&#x6765;push&#x3002;&#x4EC0;&#x4E48;&#xFF0C;&#x4F60;&#x8BF4;SSH&#x534F;&#x8BAE;&#x7684;git&#x5730;&#x5740;&#x5728;&#x54EA;&#x62F7;&#x8D1D;&#xFF1F;&#x5C31;&#x5728;repo&#x4E3B;&#x9875;&#x7684;HTTPS&#x9009;&#x9879;&#x7684;&#x65C1;&#x8FB9;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x9009;&#x62E9;</p>
+<h2 id="&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github"><a href="#&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub" class="headerlink" title="&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub"></a>&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle update github-pages</span><br></pre></td></tr></table></figure>
+<p>  &#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A;<code>bundle update</code></p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x901A;&#x8FC7; <a href="http://uolcano.github.io/blog-by-jekyll/">http://uolcano.github.io/blog-by-jekyll/</a> &#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;jekyll&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x4E86;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><p><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">&#x4E00;&#x6B65;&#x6B65;&#x5728;GitHub&#x4E0A;&#x521B;&#x5EFA;&#x535A;&#x5BA2;&#x4E3B;&#x9875;-&#x6700;&#x65B0;&#x7248;</a><br><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">Setting up your GitHub Pages site locally with Jekyll</a><br><a href="https://help.github.com/articles/configuring-jekyll/" target="_blank" rel="external">Configuring Jekyll</a></p>
 
       
     </div>
@@ -351,46 +463,46 @@
     <div class="entry">
       
         <ol>
-<li><p>下载证书</p>
+<li><p>&#x4E0B;&#x8F7D;&#x8BC1;&#x4E66;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装稳定版rvm以及最新版的ruby</p>
+<li><p>&#x5B89;&#x88C5;&#x7A33;&#x5B9A;&#x7248;rvm&#x4EE5;&#x53CA;&#x6700;&#x65B0;&#x7248;&#x7684;ruby</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装依赖，初始化并立即执行</p>
+<li><p>&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5E76;&#x7ACB;&#x5373;&#x6267;&#x884C;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev</span><br><span class="line">source ~/.rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改rubygems的源为淘宝ruby源，并查看确认</p>
+<li><p>&#x4FEE;&#x6539;rubygems&#x7684;&#x6E90;&#x4E3A;&#x6DD8;&#x5B9D;ruby&#x6E90;&#xFF0C;&#x5E76;&#x67E5;&#x770B;&#x786E;&#x8BA4;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">gen sources -l</span><br></pre></td></tr></table></figure>
-<p> PS：淘宝源如果有问题fetch error的话，可以改用 <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> 替换。</p>
+<p> PS&#xFF1A;&#x6DD8;&#x5B9D;&#x6E90;&#x5982;&#x679C;&#x6709;&#x95EE;&#x9898;fetch error&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x7528; <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> &#x66FF;&#x6362;&#x3002;</p>
 </li>
-<li><p>以sudo安装rubygems-update</p>
+<li><p>&#x4EE5;sudo&#x5B89;&#x88C5;rubygems-update</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem install rubygems-update</span><br><span class="line">update_rubygems</span><br><span class="line">gem update --system</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装bundler</p>
+<li><p>&#x5B89;&#x88C5;bundler</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装rails</p>
+<li><p>&#x5B89;&#x88C5;rails</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rails</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装nvm</p>
+<li><p>&#x5B89;&#x88C5;nvm</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p> 安装最新版nodejs</p>
+<p> &#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;nodejs</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 5.0</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装及配置git</p>
+<li><p>&#x5B89;&#x88C5;&#x53CA;&#x914D;&#x7F6E;git</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<p> 配置git基本信息，并生成ssh公钥</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #查看配置信息</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
-<p> 查看生成的公钥，并复制之</p>
+<p> &#x914D;&#x7F6E;git&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x751F;&#x6210;ssh&#x516C;&#x94A5;</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
+<p> &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;&#x516C;&#x94A5;&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x4E4B;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p> 到github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key，给SSH key写个名字作为Title，在key下粘贴从id_rsa.pub里复制公钥。然后Add SSH key即可。</p>
-<p> 将本地git与github账号建立连接</p>
+<p> &#x5230;github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key&#xFF0C;&#x7ED9;SSH key&#x5199;&#x4E2A;&#x540D;&#x5B57;&#x4F5C;&#x4E3A;Title&#xFF0C;&#x5728;key&#x4E0B;&#x7C98;&#x8D34;&#x4ECE;id_rsa.pub&#x91CC;&#x590D;&#x5236;&#x516C;&#x94A5;&#x3002;&#x7136;&#x540E;Add SSH key&#x5373;&#x53EF;&#x3002;</p>
+<p> &#x5C06;&#x672C;&#x5730;git&#x4E0E;github&#x8D26;&#x53F7;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p> 显示一下信息，即表示连接成功<br> <code>Hi YOUR NAME! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p> &#x663E;&#x793A;&#x4E00;&#x4E0B;&#x4FE1;&#x606F;&#xFF0C;&#x5373;&#x8868;&#x793A;&#x8FDE;&#x63A5;&#x6210;&#x529F;<br> <code>Hi YOUR NAME! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
 </li>
 </ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</h2><ul>
 <li><a href="https://rvm.io/rvm/install" target="_blank" rel="external">https://rvm.io/rvm/install</a></li>
 <li><a href="https://github.com/rvm/rvm" target="_blank" rel="external">https://github.com/rvm/rvm</a></li>
 <li><a href="https://gorails.com/setup/ubuntu/14.04" target="_blank" rel="external">https://gorails.com/setup/ubuntu/14.04</a></li>
@@ -432,44 +544,57 @@
     </header>
     <div class="entry">
       
-        <p><strong>近几天着手在Windows下通过<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>搭建个人博客，但由于国内网络问题和Windows下安装ruby和bundler的各种证书问题，安装jekyll折腾了好久。无奈，经朋友介绍，通过使用VirtualBox+Vagrant+PuTTY终于可以安装好jekyll并成功搭建示范站点了。本文作为安装记录方便以后有需要的时候再次安装，如能对其他读者有所帮助，不胜荣幸。</strong></p>
-<h2 id="“食材”准备"><a href="#“食材”准备" class="headerlink" title="“食材”准备"></a>“食材”准备</h2><ul>
+        <!-- toc -->
+<ul>
+<li><a href="#&#x98DF;&#x6750;&#x51C6;&#x5907;">&#x201C;&#x98DF;&#x6750;&#x201D;&#x51C6;&#x5907;</a></li>
+<li><a href="#&#x98DF;&#x6750;&#x9009;&#x62E9;">&#x201C;&#x98DF;&#x6750;&#x201D;&#x9009;&#x62E9;</a></li>
+<li><a href="#&#x70F9;&#x8C03;&#x65B9;&#x5F0F;">&#x201C;&#x70F9;&#x8C03;&#x201D;&#x65B9;&#x5F0F;</a><ul>
+<li><a href="#virtualbox">VirtualBox</a></li>
+<li><a href="#vagrant">Vagrant</a></li>
+<li><a href="#putty&#x548C;puttygen">PuTTY&#x548C;PuTTYGen</a></li>
+</ul>
+</li>
+<li><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;">&#x53C2;&#x8003;&#x94FE;&#x63A5;</a></li>
+</ul>
+<!-- tocstop -->
+<p><strong>&#x8FD1;&#x51E0;&#x5929;&#x7740;&#x624B;&#x5728;Windows&#x4E0B;&#x901A;&#x8FC7;<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>&#x642D;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x56FD;&#x5185;&#x7F51;&#x7EDC;&#x95EE;&#x9898;&#x548C;Windows&#x4E0B;&#x5B89;&#x88C5;ruby&#x548C;bundler&#x7684;&#x5404;&#x79CD;&#x8BC1;&#x4E66;&#x95EE;&#x9898;&#xFF0C;&#x5B89;&#x88C5;jekyll&#x6298;&#x817E;&#x4E86;&#x597D;&#x4E45;&#x3002;&#x65E0;&#x5948;&#xFF0C;&#x7ECF;&#x670B;&#x53CB;&#x4ECB;&#x7ECD;&#xFF0C;&#x901A;&#x8FC7;&#x4F7F;&#x7528;VirtualBox+Vagrant+PuTTY&#x7EC8;&#x4E8E;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x597D;jekyll&#x5E76;&#x6210;&#x529F;&#x642D;&#x5EFA;&#x793A;&#x8303;&#x7AD9;&#x70B9;&#x4E86;&#x3002;&#x672C;&#x6587;&#x4F5C;&#x4E3A;&#x5B89;&#x88C5;&#x8BB0;&#x5F55;&#x65B9;&#x4FBF;&#x4EE5;&#x540E;&#x6709;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x518D;&#x6B21;&#x5B89;&#x88C5;&#xFF0C;&#x5982;&#x80FD;&#x5BF9;&#x5176;&#x4ED6;&#x8BFB;&#x8005;&#x6709;&#x6240;&#x5E2E;&#x52A9;&#xFF0C;&#x4E0D;&#x80DC;&#x8363;&#x5E78;&#x3002;</strong></p>
+<h2 id="&#x98DF;&#x6750;&#x51C6;&#x5907;"><a href="#&#x201C;&#x98DF;&#x6750;&#x201D;&#x51C6;&#x5907;" class="headerlink" title="&#x201C;&#x98DF;&#x6750;&#x201D;&#x51C6;&#x5907;"></a>&#x201C;&#x98DF;&#x6750;&#x201D;&#x51C6;&#x5907;</h2><ul>
 <li><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">VirtualBox</a>  </li>
 <li><a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="external">Vagrant</a></li>
-<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">PuTTY和PuTTYGen</a></li>
+<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">PuTTY&#x548C;PuTTYGen</a></li>
 </ul>
-<h2 id="“食材”选择"><a href="#“食材”选择" class="headerlink" title="“食材”选择"></a>“食材”选择</h2><ol>
-<li>VirtualBox选“VirtualBox 5.0.16 for Windows hosts”下载，我装的时候5.0.16是最新的，并且一定要下载“VirtualBox 5.0.16 Oracle VM VirtualBox Extension Pack”。都是双击安装，win下都是无脑双击了；  </li>
-<li>Vagrant选择Windows通用版，下载安装就好了；  </li>
-<li>PuTTY和PuTTYGen(后面生成私钥，避免每次登陆都要输密码用的，实际上我用的每次都不成功，所以觉得可以接收每次都手动输入密码的，可以忽略这个)，我是直接下载的putty.zip，里面包含了PuTTY和PuTTYGen。  </li>
+<h2 id="&#x98DF;&#x6750;&#x9009;&#x62E9;"><a href="#&#x201C;&#x98DF;&#x6750;&#x201D;&#x9009;&#x62E9;" class="headerlink" title="&#x201C;&#x98DF;&#x6750;&#x201D;&#x9009;&#x62E9;"></a>&#x201C;&#x98DF;&#x6750;&#x201D;&#x9009;&#x62E9;</h2><ol>
+<li>VirtualBox&#x9009;&#x201C;VirtualBox 5.0.16 for Windows hosts&#x201D;&#x4E0B;&#x8F7D;&#xFF0C;&#x6211;&#x88C5;&#x7684;&#x65F6;&#x5019;5.0.16&#x662F;&#x6700;&#x65B0;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4E00;&#x5B9A;&#x8981;&#x4E0B;&#x8F7D;&#x201C;VirtualBox 5.0.16 Oracle VM VirtualBox Extension Pack&#x201D;&#x3002;&#x90FD;&#x662F;&#x53CC;&#x51FB;&#x5B89;&#x88C5;&#xFF0C;win&#x4E0B;&#x90FD;&#x662F;&#x65E0;&#x8111;&#x53CC;&#x51FB;&#x4E86;&#xFF1B;  </li>
+<li>Vagrant&#x9009;&#x62E9;Windows&#x901A;&#x7528;&#x7248;&#xFF0C;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x5C31;&#x597D;&#x4E86;&#xFF1B;  </li>
+<li>PuTTY&#x548C;PuTTYGen(&#x540E;&#x9762;&#x751F;&#x6210;&#x79C1;&#x94A5;&#xFF0C;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x767B;&#x9646;&#x90FD;&#x8981;&#x8F93;&#x5BC6;&#x7801;&#x7528;&#x7684;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x7528;&#x7684;&#x6BCF;&#x6B21;&#x90FD;&#x4E0D;&#x6210;&#x529F;&#xFF0C;&#x6240;&#x4EE5;&#x89C9;&#x5F97;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x6BCF;&#x6B21;&#x90FD;&#x624B;&#x52A8;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x8FD9;&#x4E2A;)&#xFF0C;&#x6211;&#x662F;&#x76F4;&#x63A5;&#x4E0B;&#x8F7D;&#x7684;putty.zip&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;&#x4E86;PuTTY&#x548C;PuTTYGen&#x3002;  </li>
 </ol>
-<p>PS：考虑到国内网络情况，下载box的时候可能会有问题，建议使用迅雷之类的下载工具手动下载box压缩镜像。这里是<a href="http://laravel.io/forum/05-06-2015-how-to-download-vagrant-box-manually" target="_blank" rel="external">参考问题</a>和<a href="https://atlas.hashicorp.com/boxes/search?utm_source=vagrantcloud.com&amp;vagrantcloud=1" target="_blank" rel="external">box清单</a>，我这里选择的是ubuntu/trusty64系统，版本号是清单中对应的v20160323.1.0，可用的下载链接地址就是：<br><a href="https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160323.1.0/providers/virtualbox.box" target="_blank" rel="external">https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160323.1.0/providers/virtualbox.box</a></p>
-<h2 id="“烹调”方式"><a href="#“烹调”方式" class="headerlink" title="“烹调”方式"></a>“烹调”方式</h2><h3 id="VirtualBox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h3><ol>
-<li>必须先安装好了VirtualBox，才能保证成功装载vagrant虚拟系统；</li>
-<li>无脑安装VirtualBox和扩展包。</li>
+<p>PS&#xFF1A;&#x8003;&#x8651;&#x5230;&#x56FD;&#x5185;&#x7F51;&#x7EDC;&#x60C5;&#x51B5;&#xFF0C;&#x4E0B;&#x8F7D;box&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x8FC5;&#x96F7;&#x4E4B;&#x7C7B;&#x7684;&#x4E0B;&#x8F7D;&#x5DE5;&#x5177;&#x624B;&#x52A8;&#x4E0B;&#x8F7D;box&#x538B;&#x7F29;&#x955C;&#x50CF;&#x3002;&#x8FD9;&#x91CC;&#x662F;<a href="http://laravel.io/forum/05-06-2015-how-to-download-vagrant-box-manually" target="_blank" rel="external">&#x53C2;&#x8003;&#x95EE;&#x9898;</a>&#x548C;<a href="https://atlas.hashicorp.com/boxes/search?utm_source=vagrantcloud.com&amp;vagrantcloud=1" target="_blank" rel="external">box&#x6E05;&#x5355;</a>&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x9009;&#x62E9;&#x7684;&#x662F;ubuntu/trusty64&#x7CFB;&#x7EDF;&#xFF0C;&#x7248;&#x672C;&#x53F7;&#x662F;&#x6E05;&#x5355;&#x4E2D;&#x5BF9;&#x5E94;&#x7684;v20160323.1.0&#xFF0C;&#x53EF;&#x7528;&#x7684;&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;&#x5730;&#x5740;&#x5C31;&#x662F;&#xFF1A;<br><a href="https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160323.1.0/providers/virtualbox.box" target="_blank" rel="external">https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160323.1.0/providers/virtualbox.box</a></p>
+<h2 id="&#x70F9;&#x8C03;&#x65B9;&#x5F0F;"><a href="#&#x201C;&#x70F9;&#x8C03;&#x201D;&#x65B9;&#x5F0F;" class="headerlink" title="&#x201C;&#x70F9;&#x8C03;&#x201D;&#x65B9;&#x5F0F;"></a>&#x201C;&#x70F9;&#x8C03;&#x201D;&#x65B9;&#x5F0F;</h2><h3 id="virtualbox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h3><ol>
+<li>&#x5FC5;&#x987B;&#x5148;&#x5B89;&#x88C5;&#x597D;&#x4E86;VirtualBox&#xFF0C;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x6210;&#x529F;&#x88C5;&#x8F7D;vagrant&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#xFF1B;</li>
+<li>&#x65E0;&#x8111;&#x5B89;&#x88C5;VirtualBox&#x548C;&#x6269;&#x5C55;&#x5305;&#x3002;</li>
 </ol>
-<h3 id="Vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h3><ol>
-<li>安装，不多说；  </li>
-<li>开启cmd或者powershell，最好是以管理员权限打开，防止后面<code>vagrant up</code>的时候出状况；  </li>
-<li><p>由于不确定init过程中是否会有其他文件释放出来，最好先转到vagrant安装目录下执行（<code>cd ./vagrant</code>），输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant init ubuntu/trusty64</span><br><span class="line">vagrant box add --name BOX virtualbox.box # virtualbox.box是手动下载好的压缩镜像，我是放在vagrant目录下的，如果放在其他地方还要补充完整路径，网络好的情况下可以skip这条</span><br><span class="line">vagrant up # 需要等待挺久的，可以放着干别的事了</span><br></pre></td></tr></table></figure>
+<h3 id="vagrant"><a href="#Vagrant" class="headerlink" title="Vagrant"></a>Vagrant</h3><ol>
+<li>&#x5B89;&#x88C5;&#xFF0C;&#x4E0D;&#x591A;&#x8BF4;&#xFF1B;  </li>
+<li>&#x5F00;&#x542F;cmd&#x6216;&#x8005;powershell&#xFF0C;&#x6700;&#x597D;&#x662F;&#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x6253;&#x5F00;&#xFF0C;&#x9632;&#x6B62;&#x540E;&#x9762;<code>vagrant up</code>&#x7684;&#x65F6;&#x5019;&#x51FA;&#x72B6;&#x51B5;&#xFF1B;  </li>
+<li><p>&#x7531;&#x4E8E;&#x4E0D;&#x786E;&#x5B9A;init&#x8FC7;&#x7A0B;&#x4E2D;&#x662F;&#x5426;&#x4F1A;&#x6709;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x91CA;&#x653E;&#x51FA;&#x6765;&#xFF0C;&#x6700;&#x597D;&#x5148;&#x8F6C;&#x5230;vagrant&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;&#xFF08;<code>cd ./vagrant</code>&#xFF09;&#xFF0C;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant init ubuntu/trusty64</span><br><span class="line">vagrant box add --name BOX virtualbox.box # virtualbox.box&#x662F;&#x624B;&#x52A8;&#x4E0B;&#x8F7D;&#x597D;&#x7684;&#x538B;&#x7F29;&#x955C;&#x50CF;&#xFF0C;&#x6211;&#x662F;&#x653E;&#x5728;vagrant&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x653E;&#x5728;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x8FD8;&#x8981;&#x8865;&#x5145;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#xFF0C;&#x7F51;&#x7EDC;&#x597D;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x4EE5;skip&#x8FD9;&#x6761;</span><br><span class="line">vagrant up # &#x9700;&#x8981;&#x7B49;&#x5F85;&#x633A;&#x4E45;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x653E;&#x7740;&#x5E72;&#x522B;&#x7684;&#x4E8B;&#x4E86;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>vagrant添加box成功后，可以通过<code>vagrant box list</code>查看已经装载的虚拟系统；vagrant装载成功后，可以通过<code>vagrant status</code>查看状态，“running virtualbox”表示正在运行服务，“poweroff”表示已经终止；  </p>
+<li><p>vagrant&#x6DFB;&#x52A0;box&#x6210;&#x529F;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>vagrant box list</code>&#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x88C5;&#x8F7D;&#x7684;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#xFF1B;vagrant&#x88C5;&#x8F7D;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>vagrant status</code>&#x67E5;&#x770B;&#x72B6;&#x6001;&#xFF0C;&#x201C;running virtualbox&#x201D;&#x8868;&#x793A;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x670D;&#x52A1;&#xFF0C;&#x201C;poweroff&#x201D;&#x8868;&#x793A;&#x5DF2;&#x7ECF;&#x7EC8;&#x6B62;&#xFF1B;  </p>
 </li>
-<li>使用<code>vagrant ssh-config</code>来查看已经开启的ssh的相关信息，注意一定要是使用<code>vagrant up</code>以后，才会开启服务。记录下相关信息，或者保持这个页面，后面的PuTTY设置需要用。  </li>
+<li>&#x4F7F;&#x7528;<code>vagrant ssh-config</code>&#x6765;&#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x5F00;&#x542F;&#x7684;ssh&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x6CE8;&#x610F;&#x4E00;&#x5B9A;&#x8981;&#x662F;&#x4F7F;&#x7528;<code>vagrant up</code>&#x4EE5;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x5F00;&#x542F;&#x670D;&#x52A1;&#x3002;&#x8BB0;&#x5F55;&#x4E0B;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x6216;&#x8005;&#x4FDD;&#x6301;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x540E;&#x9762;&#x7684;PuTTY&#x8BBE;&#x7F6E;&#x9700;&#x8981;&#x7528;&#x3002;  </li>
 </ol>
-<p>PS：常用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant up #启动虚拟机</span><br><span class="line">vagrant halt #关闭虚拟机</span><br><span class="line">vagrant status #查看虚拟机运行状态</span><br></pre></td></tr></table></figure></p>
-<p>更多命令可查看<a href="https://www.vagrantup.com/docs/cli/" target="_blank" rel="external">Vagrant文档</a></p>
-<h3 id="PuTTY和PuTTYGen"><a href="#PuTTY和PuTTYGen" class="headerlink" title="PuTTY和PuTTYGen"></a>PuTTY和PuTTYGen</h3><p>PuTTY只是一个开启虚拟终端的平台，vagrant可能会推荐使用cygwin/mingw/git等工具，可自己选择，不过我不知道怎么设置主机名和端口。  </p>
+<p>PS&#xFF1A;&#x5E38;&#x7528;&#x547D;&#x4EE4;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vagrant up #&#x542F;&#x52A8;&#x865A;&#x62DF;&#x673A;</span><br><span class="line">vagrant halt #&#x5173;&#x95ED;&#x865A;&#x62DF;&#x673A;</span><br><span class="line">vagrant status #&#x67E5;&#x770B;&#x865A;&#x62DF;&#x673A;&#x8FD0;&#x884C;&#x72B6;&#x6001;</span><br></pre></td></tr></table></figure></p>
+<p>&#x66F4;&#x591A;&#x547D;&#x4EE4;&#x53EF;&#x67E5;&#x770B;<a href="https://www.vagrantup.com/docs/cli/" target="_blank" rel="external">Vagrant&#x6587;&#x6863;</a></p>
+<h3 id="putty&#x548C;puttygen"><a href="#PuTTY&#x548C;PuTTYGen" class="headerlink" title="PuTTY&#x548C;PuTTYGen"></a>PuTTY&#x548C;PuTTYGen</h3><p>PuTTY&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x542F;&#x865A;&#x62DF;&#x7EC8;&#x7AEF;&#x7684;&#x5E73;&#x53F0;&#xFF0C;vagrant&#x53EF;&#x80FD;&#x4F1A;&#x63A8;&#x8350;&#x4F7F;&#x7528;cygwin/mingw/git&#x7B49;&#x5DE5;&#x5177;&#xFF0C;&#x53EF;&#x81EA;&#x5DF1;&#x9009;&#x62E9;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x8BBE;&#x7F6E;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x7AEF;&#x53E3;&#x3002;  </p>
 <ol>
-<li>打开PuTTY，Session-&gt;Host Name，输入127.0.0.1，Port输入2222。这两个都是vagrant自动分配的，信息来自<code>vagrant ssh-config</code>打印的结果；  </li>
-<li>在Session-&gt;Saved Sessions下输入一个自定义的名称如“VM-trusty64”，然后Save。这一步的作用是以后每次开启PuTTY时只需要选择“VM-trusty64”，然后Load，就可以直接Open了。其他都可以不设置；  </li>
-<li>如果你需要设置自动登录，也就是面输入密码，请到页面最下面查看第一条参考链接。因为我没有尝试成功，在这里就不描述了；  </li>
-<li>Open以后，就是跳转出终端，首先就是输入用户名和密码，两者都是<code>vagrant</code>，密码不会显示出来，输入完后enter即可。  </li>
+<li>&#x6253;&#x5F00;PuTTY&#xFF0C;Session-&gt;Host Name&#xFF0C;&#x8F93;&#x5165;127.0.0.1&#xFF0C;Port&#x8F93;&#x5165;2222&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x90FD;&#x662F;vagrant&#x81EA;&#x52A8;&#x5206;&#x914D;&#x7684;&#xFF0C;&#x4FE1;&#x606F;&#x6765;&#x81EA;<code>vagrant ssh-config</code>&#x6253;&#x5370;&#x7684;&#x7ED3;&#x679C;&#xFF1B;  </li>
+<li>&#x5728;Session-&gt;Saved Sessions&#x4E0B;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x540D;&#x79F0;&#x5982;&#x201C;VM-trusty64&#x201D;&#xFF0C;&#x7136;&#x540E;Save&#x3002;&#x8FD9;&#x4E00;&#x6B65;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x4EE5;&#x540E;&#x6BCF;&#x6B21;&#x5F00;&#x542F;PuTTY&#x65F6;&#x53EA;&#x9700;&#x8981;&#x9009;&#x62E9;&#x201C;VM-trusty64&#x201D;&#xFF0C;&#x7136;&#x540E;Load&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;Open&#x4E86;&#x3002;&#x5176;&#x4ED6;&#x90FD;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF1B;  </li>
+<li>&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x767B;&#x5F55;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x9762;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#xFF0C;&#x8BF7;&#x5230;&#x9875;&#x9762;&#x6700;&#x4E0B;&#x9762;&#x67E5;&#x770B;&#x7B2C;&#x4E00;&#x6761;&#x53C2;&#x8003;&#x94FE;&#x63A5;&#x3002;&#x56E0;&#x4E3A;&#x6211;&#x6CA1;&#x6709;&#x5C1D;&#x8BD5;&#x6210;&#x529F;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x63CF;&#x8FF0;&#x4E86;&#xFF1B;  </li>
+<li>Open&#x4EE5;&#x540E;&#xFF0C;&#x5C31;&#x662F;&#x8DF3;&#x8F6C;&#x51FA;&#x7EC8;&#x7AEF;&#xFF0C;&#x9996;&#x5148;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#xFF0C;&#x4E24;&#x8005;&#x90FD;&#x662F;<code>vagrant</code>&#xFF0C;&#x5BC6;&#x7801;&#x4E0D;&#x4F1A;&#x663E;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x8F93;&#x5165;&#x5B8C;&#x540E;enter&#x5373;&#x53EF;&#x3002;  </li>
 </ol>
-<p>打开终端后，即可使用ubuntu下的linux命令了。如果要使用其他虚拟系统，可以对应box清单，下载对应版本虚拟系统的压缩镜像。</p>
-<p>最后，感谢@X!aoTian给与的耐心帮助。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<p>&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x540E;&#xFF0C;&#x5373;&#x53EF;&#x4F7F;&#x7528;ubuntu&#x4E0B;&#x7684;linux&#x547D;&#x4EE4;&#x4E86;&#x3002;&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;box&#x6E05;&#x5355;&#xFF0C;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#x865A;&#x62DF;&#x7CFB;&#x7EDF;&#x7684;&#x538B;&#x7F29;&#x955C;&#x50CF;&#x3002;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x611F;&#x8C22;@X!aoTian&#x7ED9;&#x4E0E;&#x7684;&#x8010;&#x5FC3;&#x5E2E;&#x52A9;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</h2><ul>
 <li><a href="http://www.sitepoint.com/getting-started-vagrant-windows/" target="_blank" rel="external">Getting Started with Vagrant on Windows</a></li>
 <li><a href="http://laravel.io/forum/05-06-2015-how-to-download-vagrant-box-manually" target="_blank" rel="external">how to download vagrant box manually?</a></li>
 </ul>
@@ -498,14 +623,14 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:uolcano.github.io/blog">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
@@ -516,7 +641,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
     <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>4</small></li>

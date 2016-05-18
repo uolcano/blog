@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>在Windows下，利用chocolatey快速安装jekyll（无bundler） | UC&#39;s Programming Eden</title>
+  <title>Install Java On Ubuntu By CommandLine | UC&#39;s Programming Eden</title>
   <meta name="author" content="uolcano">
   
   <meta name="description" content="To believe that programming make the life wonderful, make the world better">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="在Windows下，利用chocolatey快速安装jekyll（无bundler）"/>
+  <meta property="og:title" content="Install Java On Ubuntu By CommandLine"/>
   <meta property="og:site_name" content="UC&#39;s Programming Eden"/>
 
   
@@ -51,36 +51,26 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-04-10T15:58:07.000Z"><a href="/blog/2016/04/10/在Windows下，利用chocolatey快速安装jekyll（无bundler）/">2016-04-10</a></time>
+        <time datetime="2016-05-07T13:09:59.000Z"><a href="/blog/2016/05/07/Install-Java-On-Ubuntu-By-CommandLine/">2016-05-07</a></time>
       
       
   
-    <h1 class="title">在Windows下，利用chocolatey快速安装jekyll（无bundler）</h1>
+    <h1 class="title">Install Java On Ubuntu By CommandLine</h1>
   
 
     </header>
     <div class="entry">
       
-        <!-- toc -->
-<ul>
-<li><a href="#&#x5B89;&#x88C5;&#x6B65;&#x9AA4;">&#x5B89;&#x88C5;&#x6B65;&#x9AA4;</a></li>
-<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
-</ul>
-<!-- tocstop -->
-<h2 id="&#x5B89;&#x88C5;&#x6B65;&#x9AA4;"><a href="#&#x5B89;&#x88C5;&#x6B65;&#x9AA4;" class="headerlink" title="&#x5B89;&#x88C5;&#x6B65;&#x9AA4;"></a>&#x5B89;&#x88C5;&#x6B65;&#x9AA4;</h2><ol>
-<li><p>&#x5B89;&#x88C5;chocolatey&#x3002;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x7684;cmd&#x4E0B;&#xFF0C;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((new-object net.webclient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;ruby&#x3002;&#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x91CD;&#x542F;cmd&#xFF0C;&#x6267;&#x884C;<code>choco install ruby -y</code>&#xFF0C;&#x81EA;&#x52A8;&#x5B89;&#x88C5;ruby2.2.4&#x3002;</p>
-</li>
-<li><p>&#x5B89;&#x88C5;jekyll&#x3002;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x91CD;&#x542F;cmd&#xFF0C;&#x6267;&#x884C;<code>gem install jekyll</code>&#x3002;</p>
-</li>
-</ol>
-<p>&#x81F3;&#x6B64;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;jekyll&#x547D;&#x4EE4;&#x884C;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jekyll new myblog</span><br><span class="line">cd myblog</span><br><span class="line">jekyll serve</span><br></pre></td></tr></table></figure></p>
-<p>&#x6700;&#x540E;&#xFF0C;&#x636E;GitHub Help&#x7684;&#x6307;&#x5357;&#xFF0C;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x5B89;&#x88C5;bundler&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x76F4;&#x63A5;&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github&#x4E0A;&#xFF08;<strong>&#x5C1A;&#x672A;&#x6D4B;&#x8BD5;&#x53EF;&#x884C;&#x6027;</strong>&#xFF09;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update github-pages</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
-<li><a href="https://davidburela.wordpress.com/2015/11/28/easily-install-jekyll-on-windows-with-3-command-prompt-entries-and-chocolatey/" target="_blank" rel="external">Easily install Jekyll on Windows with 2 command prompt entries and Chocolatey</a></li>
-<li><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#keeping-your-site-up-to-date-with-the-github-pages-gem" target="_blank" rel="external">Keeping your site up to date with the GitHub Pages gem</a></li>
+        <h2 id="installing-jrejdk"><a href="#Installing-JRE-JDK" class="headerlink" title="Installing JRE/JDK"></a>Installing JRE/JDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  # update the package index</span><br><span class="line">java -version  # check if java installed</span><br><span class="line">sudo apt-get install default-jre  # install JRE</span><br><span class="line">sudo apt-get install default-jdk  # install JDK, if necessary</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">## Setting the &quot;JAVA_HOME&quot; environment variable  </span><br><span class="line">1. find out the path of JAVA installation</span><br></pre></td></tr></table></figure>
+<p>sudo update-alternatives &#x2013;config java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It perhaps returns:</span><br></pre></td></tr></table></figure></p>
+<p>There is only one alternative in link group java (providing /usr/bin/java): /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Then, _the path_ is &quot;/usr/lib/jvm/java-7-openjdk-amd64&quot;, hold it.  </span><br><span class="line"></span><br><span class="line">2. use nano to edit the file /etc/environment</span><br></pre></td></tr></table></figure></p>
+<p>sudo nano /etc/environment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In this file, append _the path_, holden just now, into the quotes, seperate by colon, like this:</span><br></pre></td></tr></table></figure></p>
+<p>JAVA_HOME=&#x201D;your/other/paths:/usr/lib/jvm/java-7-openjdk-amd64&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. reload the file /etc/environment</span><br></pre></td></tr></table></figure></p>
+<p>source /etc/environment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. check if java installed</span><br></pre></td></tr></table></figure></p>
+<p>java -version<br>```</p>
+<p>Finally, it maybe not have to set the environment variable. I don&#x2019;t test that, after someone told me.</p>
+<h2 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">How To Install Java on Ubuntu with Apt-Get | DigitalOcean</a></li>
 </ul>
 
       
@@ -88,17 +78,7 @@
     <footer>
       
         
-  
-  <div class="categories">
-    <a href="/blog/categories/Building-Site/">Building Site</a>
-  </div>
-
         
-  
-  <div class="tags">
-    <a href="/blog/tags/Windows/">Windows</a>, <a href="/blog/tags/GitHub-Pages/">GitHub Pages</a>, <a href="/blog/tags/chocolatey/">chocolatey</a>, <a href="/blog/tags/jekyll/">jekyll</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -139,7 +119,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/04/10/在Windows下，利用chocolatey快速安装jekyll（无bundler）/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/05/07/Install-Java-On-Ubuntu-By-CommandLine/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>

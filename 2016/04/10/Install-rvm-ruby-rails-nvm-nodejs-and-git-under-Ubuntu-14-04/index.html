@@ -62,46 +62,46 @@
     <div class="entry">
       
         <ol>
-<li><p>下载证书</p>
+<li><p>&#x4E0B;&#x8F7D;&#x8BC1;&#x4E66;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装稳定版rvm以及最新版的ruby</p>
+<li><p>&#x5B89;&#x88C5;&#x7A33;&#x5B9A;&#x7248;rvm&#x4EE5;&#x53CA;&#x6700;&#x65B0;&#x7248;&#x7684;ruby</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装依赖，初始化并立即执行</p>
+<li><p>&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5E76;&#x7ACB;&#x5373;&#x6267;&#x884C;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev</span><br><span class="line">source ~/.rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改rubygems的源为淘宝ruby源，并查看确认</p>
+<li><p>&#x4FEE;&#x6539;rubygems&#x7684;&#x6E90;&#x4E3A;&#x6DD8;&#x5B9D;ruby&#x6E90;&#xFF0C;&#x5E76;&#x67E5;&#x770B;&#x786E;&#x8BA4;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">gen sources -l</span><br></pre></td></tr></table></figure>
-<p> PS：淘宝源如果有问题fetch error的话，可以改用 <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> 替换。</p>
+<p> PS&#xFF1A;&#x6DD8;&#x5B9D;&#x6E90;&#x5982;&#x679C;&#x6709;&#x95EE;&#x9898;fetch error&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x7528; <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> &#x66FF;&#x6362;&#x3002;</p>
 </li>
-<li><p>以sudo安装rubygems-update</p>
+<li><p>&#x4EE5;sudo&#x5B89;&#x88C5;rubygems-update</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem install rubygems-update</span><br><span class="line">update_rubygems</span><br><span class="line">gem update --system</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装bundler</p>
+<li><p>&#x5B89;&#x88C5;bundler</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装rails</p>
+<li><p>&#x5B89;&#x88C5;rails</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rails</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装nvm</p>
+<li><p>&#x5B89;&#x88C5;nvm</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p> 安装最新版nodejs</p>
+<p> &#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;nodejs</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 5.0</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装及配置git</p>
+<li><p>&#x5B89;&#x88C5;&#x53CA;&#x914D;&#x7F6E;git</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<p> 配置git基本信息，并生成ssh公钥</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #查看配置信息</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
-<p> 查看生成的公钥，并复制之</p>
+<p> &#x914D;&#x7F6E;git&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x751F;&#x6210;ssh&#x516C;&#x94A5;</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
+<p> &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;&#x516C;&#x94A5;&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x4E4B;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p> 到github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key，给SSH key写个名字作为Title，在key下粘贴从id_rsa.pub里复制公钥。然后Add SSH key即可。</p>
-<p> 将本地git与github账号建立连接</p>
+<p> &#x5230;github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key&#xFF0C;&#x7ED9;SSH key&#x5199;&#x4E2A;&#x540D;&#x5B57;&#x4F5C;&#x4E3A;Title&#xFF0C;&#x5728;key&#x4E0B;&#x7C98;&#x8D34;&#x4ECE;id_rsa.pub&#x91CC;&#x590D;&#x5236;&#x516C;&#x94A5;&#x3002;&#x7136;&#x540E;Add SSH key&#x5373;&#x53EF;&#x3002;</p>
+<p> &#x5C06;&#x672C;&#x5730;git&#x4E0E;github&#x8D26;&#x53F7;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p> 显示一下信息，即表示连接成功<br> <code>Hi YOUR NAME! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p> &#x663E;&#x793A;&#x4E00;&#x4E0B;&#x4FE1;&#x606F;&#xFF0C;&#x5373;&#x8868;&#x793A;&#x8FDE;&#x63A5;&#x6210;&#x529F;<br> <code>Hi YOUR NAME! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
 </li>
 </ol>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</h2><ul>
 <li><a href="https://rvm.io/rvm/install" target="_blank" rel="external">https://rvm.io/rvm/install</a></li>
 <li><a href="https://github.com/rvm/rvm" target="_blank" rel="external">https://github.com/rvm/rvm</a></li>
 <li><a href="https://gorails.com/setup/ubuntu/14.04" target="_blank" rel="external">https://gorails.com/setup/ubuntu/14.04</a></li>
@@ -154,7 +154,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -177,14 +177,14 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:uolcano.github.io/blog">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
@@ -195,7 +195,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
     <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>4</small></li>

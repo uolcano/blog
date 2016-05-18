@@ -61,43 +61,40 @@
     </header>
     <div class="entry">
       
-        <h2 id="前序安装"><a href="#前序安装" class="headerlink" title="前序安装"></a>前序安装</h2><ol>
-<li>安装ruby</li>
-<li>安装rubygems</li>
-<li>安装bundler</li>
-<li>安装和配置git</li>
-<li>安装nodejs</li>
+        <!-- toc -->
+<ul>
+<li><a href="#&#x524D;&#x5E8F;&#x5B89;&#x88C5;">&#x524D;&#x5E8F;&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;">&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;</a></li>
+<li><a href="#&#x914D;&#x7F6E;gemfile">&#x914D;&#x7F6E;Gemfile</a></li>
+<li><a href="#&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;">&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;</a></li>
+<li><a href="#&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;">&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;</a></li>
+<li><a href="#&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;">&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;</a></li>
+<li><a href="#&#x5728;github&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;">&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;</a></li>
+<li><a href="#&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github">&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="&#x524D;&#x5E8F;&#x5B89;&#x88C5;"><a href="#&#x524D;&#x5E8F;&#x5B89;&#x88C5;" class="headerlink" title="&#x524D;&#x5E8F;&#x5B89;&#x88C5;"></a>&#x524D;&#x5E8F;&#x5B89;&#x88C5;</h2><ol>
+<li>&#x5B89;&#x88C5;ruby</li>
+<li>&#x5B89;&#x88C5;rubygems</li>
+<li>&#x5B89;&#x88C5;bundler</li>
+<li>&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;git</li>
+<li>&#x5B89;&#x88C5;nodejs</li>
 </ol>
-<p>可以参考我的这篇文章<a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04</a></p>
-<h2 id="创建本地repo和安装配置jekyll"><a href="#创建本地repo和安装配置jekyll" class="headerlink" title="创建本地repo和安装配置jekyll"></a>创建本地repo和安装配置jekyll</h2><ol>
-<li><p>切换到用于存git repo的目录下，初始化一个用于jekyll搭建静态页面的repo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ./git</span><br><span class="line">git init blog-by-jekyll # 本地创建并初始化一个repo</span><br><span class="line">cd blog-by-jekyll # 切换到这个repo</span><br><span class="line">git checkout -b gh-pages # 创建并切换到gh-pages分支，用于默认在github自动搭建页面</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在这个repo下，<code>vim Gemfile</code>，创建一个叫做Gemfile的文件，注意无扩展名，输入一下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://ruby.taobao.org&apos;</span><br><span class="line">gem &apos;github-pages&apos;, group: :jekyll_plugins</span><br></pre></td></tr></table></figure>
-<p>国内使用淘宝的源<a href="https://ruby.taobao.org比较快，故未使用https://rubygems.org。当然国内的用https://gems.ruby-china.org也是一个选择。" target="_blank" rel="external">https://ruby.taobao.org比较快，故未使用https://rubygems.org。当然国内的用https://gems.ruby-china.org也是一个选择。</a></p>
-</li>
-<li><p>安装jekyll和其他依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
-<p>安装完成后，会提示<code>Thank you for installing github-pages!</code>blablablabla~</p>
-</li>
-<li><p>生成jekyll静态页面的模版</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll new . --force</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开启静态站的本地http服务，用于本地查看站点效果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll serve</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在GitHub的页面New repository，只需要给repo取名为本地git下的repo名同名，如：blog-by-jekyll，其他都不选，直接Create repository。回到终端，以此输入一下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:uolcano/blog-by-jekyll.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &apos;first blog by jekyll&apos;</span><br><span class="line">git push origin gh-pages</span><br></pre></td></tr></table></figure>
-<p>由于在Linux下的git是通过生成ssh密钥来与GitHub账号关联的，所以需要用SSH来push。什么，你说SSH协议的git地址在哪拷贝？就在repo主页的HTTPS选项的旁边或者通过下拉菜单选择</p>
-</li>
-<li><p>将本地页面部署到GitHub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle update github-pages</span><br></pre></td></tr></table></figure>
-<p>可以简写为<code>bundle update</code></p>
-</li>
-</ol>
-<p>最后，通过 <a href="http://uolcano.github.io/blog-by-jekyll/">http://uolcano.github.io/blog-by-jekyll/</a> 就可以访问jekyll自动生成的页面了。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">一步步在GitHub上创建博客主页-最新版</a><br><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">Setting up your GitHub Pages site locally with Jekyll</a><br><a href="https://help.github.com/articles/configuring-jekyll/" target="_blank" rel="external">Configuring Jekyll</a></p>
+<p>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6211;&#x7684;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;<a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04</a></p>
+<h2 id="&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;"><a href="#&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;" class="headerlink" title="&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;"></a>&#x521B;&#x5EFA;&#x672C;&#x5730;repo&#x548C;&#x5206;&#x652F;</h2><p>&#x5207;&#x6362;&#x5230;&#x7528;&#x4E8E;&#x5B58;git repo&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;jekyll&#x642D;&#x5EFA;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;repo<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ./git</span><br><span class="line">git init blog-by-jekyll # &#x672C;&#x5730;&#x521B;&#x5EFA;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;repo</span><br><span class="line">cd blog-by-jekyll # &#x5207;&#x6362;&#x5230;&#x8FD9;&#x4E2A;repo</span><br><span class="line">git checkout -b gh-pages # &#x521B;&#x5EFA;&#x5E76;&#x5207;&#x6362;&#x5230;gh-pages&#x5206;&#x652F;&#xFF0C;&#x7528;&#x4E8E;&#x9ED8;&#x8BA4;&#x5728;github&#x81EA;&#x52A8;&#x642D;&#x5EFA;&#x9875;&#x9762;</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x914D;&#x7F6E;gemfile"><a href="#&#x914D;&#x7F6E;Gemfile" class="headerlink" title="&#x914D;&#x7F6E;Gemfile"></a>&#x914D;&#x7F6E;Gemfile</h2><p>&#x5728;&#x8FD9;&#x4E2A;repo&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;<code>vim Gemfile</code>&#x547D;&#x4EE4;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EB;&#x505A;Gemfile&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x6CE8;&#x610F;&#x65E0;&#x6269;&#x5C55;&#x540D;&#xFF0C;&#x8F93;&#x5165;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source &apos;https://ruby.taobao.org&apos;</span><br><span class="line">gem &apos;github-pages&apos;, group: :jekyll_plugins</span><br></pre></td></tr></table></figure></p>
+<p>  &#x56FD;&#x5185;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x7684;&#x6E90;<a href="https://ruby.taobao.org&#x6BD4;&#x8F83;&#x5FEB;&#xFF0C;&#x6545;&#x672A;&#x4F7F;&#x7528;https://rubygems.org&#x3002;&#x5F53;&#x7136;&#x56FD;&#x5185;&#x7684;&#x7528;https://gems.ruby-china.org&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x3002;" target="_blank" rel="external">https://ruby.taobao.org&#x6BD4;&#x8F83;&#x5FEB;&#xFF0C;&#x6545;&#x672A;&#x4F7F;&#x7528;https://rubygems.org&#x3002;&#x5F53;&#x7136;&#x56FD;&#x5185;&#x7684;&#x7528;https://gems.ruby-china.org&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x3002;</a></p>
+<h2 id="&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;"><a href="#&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;" class="headerlink" title="&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;"></a>&#x5B89;&#x88C5;jekyll&#x548C;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<p>  &#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F1A;&#x63D0;&#x793A;<code>Thank you for installing github-pages!</code>blablablabla~</p>
+<h2 id="&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;"><a href="#&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;" class="headerlink" title="&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;"></a>&#x751F;&#x6210;jekyll&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x6A21;&#x7248;</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll new . --force</span><br></pre></td></tr></table></figure>
+<h2 id="&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;"><a href="#&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;" class="headerlink" title="&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;"></a>&#x5F00;&#x542F;&#x9759;&#x6001;&#x7AD9;&#x7684;&#x672C;&#x5730;http&#x670D;&#x52A1;</h2><p>&#x7528;&#x4E8E;&#x5728;&#x672C;&#x5730;&#x67E5;&#x770B;&#x7AD9;&#x70B9;&#x6548;&#x679C;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle exec jekyll serve</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x5728;github&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;"><a href="#&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;" class="headerlink" title="&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;"></a>&#x5728;GitHub&#x521B;&#x5EFA;repo&#x5E76;&#x4E0A;&#x4F20;&#x5185;&#x5BB9;</h2><p>&#x5728;GitHub&#x7684;&#x9875;&#x9762;New repository&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7ED9;repo&#x53D6;&#x540D;&#x4E3A;&#x672C;&#x5730;git&#x4E0B;&#x7684;repo&#x540D;&#x540C;&#x540D;&#xFF0C;&#x5982;&#xFF1A;blog-by-jekyll&#xFF0C;&#x5176;&#x4ED6;&#x90FD;&#x4E0D;&#x9009;&#xFF0C;&#x76F4;&#x63A5;Create repository&#x3002;&#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x4EE5;&#x6B64;&#x8F93;&#x5165;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:uolcano/blog-by-jekyll.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &apos;first blog by jekyll&apos;</span><br><span class="line">git push origin gh-pages</span><br></pre></td></tr></table></figure></p>
+<p>  &#x7531;&#x4E8E;&#x5728;Linux&#x4E0B;&#x7684;git&#x662F;&#x901A;&#x8FC7;&#x751F;&#x6210;ssh&#x5BC6;&#x94A5;&#x6765;&#x4E0E;GitHub&#x8D26;&#x53F7;&#x5173;&#x8054;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x7528;SSH&#x6765;push&#x3002;&#x4EC0;&#x4E48;&#xFF0C;&#x4F60;&#x8BF4;SSH&#x534F;&#x8BAE;&#x7684;git&#x5730;&#x5740;&#x5728;&#x54EA;&#x62F7;&#x8D1D;&#xFF1F;&#x5C31;&#x5728;repo&#x4E3B;&#x9875;&#x7684;HTTPS&#x9009;&#x9879;&#x7684;&#x65C1;&#x8FB9;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x9009;&#x62E9;</p>
+<h2 id="&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;github"><a href="#&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub" class="headerlink" title="&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub"></a>&#x5C06;&#x672C;&#x5730;&#x9875;&#x9762;&#x90E8;&#x7F72;&#x5230;GitHub</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle update github-pages</span><br></pre></td></tr></table></figure>
+<p>  &#x53EF;&#x4EE5;&#x7B80;&#x5199;&#x4E3A;<code>bundle update</code></p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x901A;&#x8FC7; <a href="http://uolcano.github.io/blog-by-jekyll/">http://uolcano.github.io/blog-by-jekyll/</a> &#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;jekyll&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x4E86;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><p><a href="http://www.pchou.info/web-build/2014/07/04/build-github-blog-page-08.html" target="_blank" rel="external">&#x4E00;&#x6B65;&#x6B65;&#x5728;GitHub&#x4E0A;&#x521B;&#x5EFA;&#x535A;&#x5BA2;&#x4E3B;&#x9875;-&#x6700;&#x65B0;&#x7248;</a><br><a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">Setting up your GitHub Pages site locally with Jekyll</a><br><a href="https://help.github.com/articles/configuring-jekyll/" target="_blank" rel="external">Configuring Jekyll</a></p>
 
       
     </div>
@@ -141,7 +138,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -164,14 +161,14 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:uolcano.github.io/blog">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
@@ -182,7 +179,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
     <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>4</small></li>
