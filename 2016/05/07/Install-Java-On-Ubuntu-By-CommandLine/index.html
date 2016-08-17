@@ -61,14 +61,27 @@
     </header>
     <div class="entry">
       
-        <h2 id="installing-jrejdk"><a href="#Installing-JRE-JDK" class="headerlink" title="Installing JRE/JDK"></a>Installing JRE/JDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  # update the package index</span><br><span class="line">java -version  # check if java installed</span><br><span class="line">sudo apt-get install default-jre  # install JRE</span><br><span class="line">sudo apt-get install default-jdk  # install JDK, if necessary</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">## Setting the &quot;JAVA_HOME&quot; environment variable  </span><br><span class="line">1. find out the path of JAVA installation</span><br></pre></td></tr></table></figure>
-<p>sudo update-alternatives &#x2013;config java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">It perhaps returns:</span><br></pre></td></tr></table></figure></p>
-<p>There is only one alternative in link group java (providing /usr/bin/java): /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Then, _the path_ is &quot;/usr/lib/jvm/java-7-openjdk-amd64&quot;, hold it.  </span><br><span class="line"></span><br><span class="line">2. use nano to edit the file /etc/environment</span><br></pre></td></tr></table></figure></p>
-<p>sudo nano /etc/environment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In this file, append _the path_, holden just now, into the quotes, seperate by colon, like this:</span><br></pre></td></tr></table></figure></p>
-<p>JAVA_HOME=&#x201D;your/other/paths:/usr/lib/jvm/java-7-openjdk-amd64&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. reload the file /etc/environment</span><br></pre></td></tr></table></figure></p>
-<p>source /etc/environment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. check if java installed</span><br></pre></td></tr></table></figure></p>
-<p>java -version<br>```</p>
-<p>Finally, it maybe not have to set the environment variable. I don&#x2019;t test that, after someone told me.</p>
+        <h2 id="installing-jrejdk"><a href="#Installing-JRE-JDK" class="headerlink" title="Installing JRE/JDK"></a>Installing JRE/JDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update  # update the package index</span><br><span class="line">java -version  # check if java installed</span><br><span class="line">sudo apt-get install default-jre  # install JRE</span><br><span class="line">sudo apt-get install default-jdk  # install JDK, if necessary</span><br></pre></td></tr></table></figure>
+<h2 id="setting-the-java_home-environment-variable"><a href="#Setting-the-&#x201C;JAVA-HOME&#x201D;-environment-variable" class="headerlink" title="Setting the &#x201C;JAVA_HOME&#x201D; environment variable"></a>Setting the &#x201C;JAVA_HOME&#x201D; environment variable</h2><ol>
+<li><p>find out the path of JAVA installation</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config java</span><br></pre></td></tr></table></figure>
+<p> It perhaps returns:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">There is only one alternative in link group java (providing /usr/bin/java): /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java</span><br></pre></td></tr></table></figure>
+<p> Then, <em>the path</em> is &#x201C;/usr/lib/jvm/java-7-openjdk-amd64&#x201D;, hold it.</p>
+</li>
+<li><p>use nano to edit the file /etc/environment</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/environment</span><br></pre></td></tr></table></figure>
+<p> In this file, append <em>the path</em>, holden just now, into the quotes, seperate by colon, like this:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=&quot;your/other/paths:/usr/lib/jvm/java-7-openjdk-amd64&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reload the file /etc/environment</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/environment</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>check if java installed</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Finally, it maybe not have to set the environment variable. But I don&#x2019;t test that.</p>
 <h2 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">How To Install Java on Ubuntu with Apt-Get | DigitalOcean</a></li>
 </ul>
@@ -78,7 +91,17 @@
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/blog/categories/Environment-Configuration/">Environment Configuration</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/blog/tags/Java/">Java</a>, <a href="/blog/tags/Ubuntu/">Ubuntu</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -140,7 +163,9 @@
   
     <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
   
-    <li><a href="/blog/categories/VM/">VM</a><small>2</small></li>
+    <li><a href="/blog/categories/Environment-Configuration/">Environment Configuration</a><small>2</small></li>
+  
+    <li><a href="/blog/categories/VM/">VM</a><small>1</small></li>
   
   </ul>
 </div>
@@ -153,11 +178,15 @@
   
     <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>5</small></li>
   
+    <li><a href="/blog/tags/Java/">Java</a><small>1</small></li>
+  
     <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
   
     <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
   
     <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
   
     <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
   
