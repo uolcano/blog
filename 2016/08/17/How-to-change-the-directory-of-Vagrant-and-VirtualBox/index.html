@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How to change the directory of Vagrant and VirtualBox | UC&#39;s Programming Eden</title>
+  <meta name="author" content="uolcano">
+  
+  <meta name="description" content="To believe that programming make the life wonderful, make the world better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="How to change the directory of Vagrant and VirtualBox"/>
+  <meta property="og:site_name" content="UC&#39;s Programming Eden"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/blog/favicon.png" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="UC&#39;s Programming Eden" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/blog/">UC&#39;s Programming Eden</a></h1>
+  <h2><a href="/blog/">To be a pure man, to be a social man</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/blog/">Home</a></li>
+    
+      <li><a href="/blog/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-08-17T03:04:04.000Z"><a href="/blog/2016/08/17/How-to-change-the-directory-of-Vagrant-and-VirtualBox/">2016-08-17</a></time>
+      
+      
+  
+    <h1 class="title">How to change the directory of Vagrant and VirtualBox</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>&#x7531;&#x4E8E;Vagrant&#x548C;VirtualBox&#x5B9E;&#x5728;&#x592A;&#x5360;&#x7A7A;&#x95F4;&#x4E86;&#xFF0C;&#x7528;WinDirStat&#x68C0;&#x6D4B;&#xFF0C;&#x5355;&#x6587;&#x4EF6;&#x6700;&#x5360;&#x7A7A;&#x95F4;&#x7684;&#x662F;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x51B3;&#x5B9A;&#x6539;&#x4E0B;&#x8DEF;&#x5F84;&#x3002;&#x6709;&#x4E24;&#x4E2A;&#x8DEF;&#x5F84;&#x8981;&#x4FEE;&#x6539;&#xFF0C;Vagrant&#x7684;VAGRANT_HOME&#x548C;VirtualBox&#x7684;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;&#x3002;&#x6211;&#x662F;&#x76F4;&#x63A5;&#x5168;&#x90E8;&#x91CD;&#x88C5;&#xFF0C;&#x628A;&#x7A0B;&#x5E8F;&#x4E5F;&#x90FD;&#x6362;&#x4E86;&#x8DEF;&#x5F84;&#x4E86;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;vagrant-box&#x8DEF;&#x5F84;"><a href="#&#x4FEE;&#x6539;Vagrant-BOX&#x8DEF;&#x5F84;" class="headerlink" title="&#x4FEE;&#x6539;Vagrant BOX&#x8DEF;&#x5F84;"></a>&#x4FEE;&#x6539;Vagrant BOX&#x8DEF;&#x5F84;</h2><p>&#x8BBE;&#x7F6E;&#x5355;&#x4E2A;<strong>&#x7528;&#x6237;</strong>&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx VAGRANT_HOME &quot;X:/your/path&quot;</span><br></pre></td></tr></table></figure></p>
+<p>&#x8BBE;&#x7F6E;<strong>&#x7CFB;&#x7EDF;</strong>&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx VAGRANT_HOME &quot;X:/your/path&quot; /M</span><br></pre></td></tr></table></figure></p>
+<p>&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x4ECE;&#x7CFB;&#x7EDF;&#x89C6;&#x56FE;&#x4E2D;&#x627E;&#x5230;&#xFF1A;&#x63A7;&#x5236;&#x9762;&#x677F;-&gt;&#x6240;&#x6709;&#x63A7;&#x5236;&#x9762;&#x677F;&#x9879;&#x76EE;-&gt;&#x7CFB;&#x7EDF;-&gt;&#x9AD8;&#x7EA7;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;-&gt;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4E0A;&#x9762;&#x662F;<strong>&#x7528;&#x6237;</strong>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4E0B;&#x9762;&#x662F;<strong>&#x7CFB;&#x7EDF;</strong>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8FD8;&#x9700;&#x8981;&#x628A;<code>%userprofile%/.vagrant.d/</code>&#x8DEF;&#x5F84;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x79FB;&#x52A8;&#x5230;&#x524D;&#x9762;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x7684;&#x8DEF;&#x5F84;<code>X:/your/path</code>&#x4E2D;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;"><a href="#&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;" class="headerlink" title="&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;"></a>&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;</h2><p>VirtualBox&#xFF0C;&#x7BA1;&#x7406;-&gt;&#x5168;&#x5C40;&#x8BBE;&#x5B9A;(Ctrl+G)&#xFF0C;&#x4FEE;&#x6539;<strong>&#x9ED8;&#x8BA4;&#x865A;&#x62DF;&#x7535;&#x8111;&#x4F4D;&#x7F6E;</strong></p>
+<h2 id="putty&#x514D;&#x5BC6;&#x7801;"><a href="#PuTTY&#x514D;&#x5BC6;&#x7801;" class="headerlink" title="PuTTY&#x514D;&#x5BC6;&#x7801;"></a>PuTTY&#x514D;&#x5BC6;&#x7801;</h2><p>&#x8FD9;&#x91CC;&#x987A;&#x4FBF;&#x628A;&#x4E4B;&#x524D;&#x6CA1;&#x5B8C;&#x6210;&#x7684;PuTTY&#x7684;&#x81EA;&#x52A8;&#x767B;&#x5F55;&#x6765;&#x5B8C;&#x6210;&#x4E86;&#x3002;&#x5F53;&#x7136;&#x5148;&#x5F00;Vagrant&#x662F;&#x514D;&#x4E0D;&#x4E86;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;&#xFF1A;&#x6BCF;&#x6B21;&#x521A;&#x6253;&#x5F00;PAGEANT&#x65F6;&#xFF0C;&#x90FD;&#x9700;&#x8981;PAGEANT-&gt;Add Key(&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;passphrase&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8F93;&#x5165;passphrase)&#x3002;&#x5982;&#x679C;&#x89C9;&#x5F97;&#x9EBB;&#x70E6;&#x8FD8;&#x662F;skip&#x5427;&#x3002;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x6253;&#x5F00;PuTTYGEN&#xFF0C;&#x70B9;&#x51FB;Load&#xFF0C;&#x5728;<br>Vagrant&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x7684;&#x5B50;&#x76EE;&#x5F55;<code>.vagrant\machines\default\virtualbox</code>&#x627E;&#x5230;private_key(&#x6CE8;&#x610F;&#x8981;&#x624B;&#x52A8;&#x9009;&#x62E9;&#x6587;&#x4EF6;&#x7C7B;&#x578B;,<code>All Files(*.*)</code>)&#xFF0C;&#x6253;&#x5F00;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x4FEE;&#x6539;<code>Key comment</code>&#x6765;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;Key&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x952E;&#x5165;<code>Key passphrase</code>&#x548C;<code>Comfirm passphrase</code>&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;Key&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x5BC6;&#x5BC6;&#x94A5;(&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;passphrase&#xFF0C;&#x540E;&#x9762;&#x7528;PAGEANT&#x65F6;&#x4F1A;&#x9700;&#x8981;&#x7528;&#x5230;&#xFF0C;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;.chm&#x6587;&#x6863;&#x662F;&#x8BF4;&#x5EFA;&#x8BAE;&#x7528;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BC6;&#x94A5;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x5B9A;&#x8981;&#x81EA;&#x5DF1;&#x53E6;&#x5916;&#x8BB0;&#x4E0B;&#x6765;)&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;<code>Save private key</code>&#xFF0C;&#x751F;&#x6210;&#x6269;&#x5C55;&#x540D;&#x4E3A;<code>.ppk</code>&#x7684;&#x79C1;&#x94A5;&#xFF0C;&#x81EA;&#x5DF1;&#x53D6;&#x540D;&#x3002;&#x516C;&#x94A5;&#x5B58;&#x4E0D;&#x5B58;&#x90FD;&#x65E0;&#x6240;&#x8C13;(&#x6682;&#x65F6;&#x7528;&#x4E0D;&#x5230;)&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x751F;&#x6210;&#x7684;&#x79C1;&#x94A5;&#x91CC;&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;&#xFF0C;&#x5982;&#x6709;&#x9700;&#x8981;&#xFF0C;&#x76F4;&#x63A5;&#x5728;PuTTYGEN&#x518D;<code>load-&gt;Save public key</code>&#x5C31;&#x597D;&#x4E86;&#x3002;</li>
+<li>&#x6253;&#x5F00;PAGEANT&#xFF0C;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x56FE;&#x6807;&#x4E0A;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x6234;&#x5E3D;&#x5B50;&#x7684;&#x7535;&#x8111;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x53F3;&#x952E;-&gt;View Keys-&gt;Add Key&#xFF0C;&#x9009;&#x62E9;&#x521A;&#x624D;&#x751F;&#x6210;&#x7684;<code>.ppk</code>&#x79C1;&#x94A5;&#x6587;&#x4EF6;</li>
+<li>&#x4EE5;&#x540E;&#x8981;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x76F4;&#x63A5;&#x627E;&#x5230;PAGEANT&#xFF0C;&#x53F3;&#x952E;-&gt;Saved Sessions&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x673A;&#x3002;&#x9700;&#x8981;&#x5173;&#x95ED;PAGEANT&#xFF0C;&#x76F4;&#x63A5;&#x53F3;&#x952E;-&gt;Exit</li>
+</ol>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x4E4B;&#x540E;&#x53EA;&#x8981;PAGEANT&#x6CA1;<code>Exit</code>&#xFF0C;&#x767B;&#x5F55;&#x865A;&#x62DF;&#x673A;&#x65F6;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x4E86;&#x3002;</p>
+<p>Vagrant&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x767B;&#x5F55;&#x5BC6;&#x94A5;&#x6587;&#x4EF6;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;<code>vagrant ssh-config</code>&#x8F93;&#x51FA;&#x7684;<code>IdentityFile</code>&#x5B57;&#x6BB5;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
+<li><a href="http://urouge.github.io/how-to-change-vagrant-box-directory-in-Windows/" target="_blank" rel="external">http://urouge.github.io/how-to-change-vagrant-box-directory-in-Windows/</a></li>
+<li><a href="http://awezome.net/1995/" target="_blank" rel="external">http://awezome.net/1995/</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/blog/categories/VM/">VM</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/blog/tags/Vagrant/">Vagrant</a>, <a href="/blog/tags/VirtualBox/">VirtualBox</a>, <a href="/blog/tags/PuTTY/">PuTTY</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/08/17/How-to-change-the-directory-of-Vagrant-and-VirtualBox/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:uolcano.github.io/blog">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
+  
+    <li><a href="/blog/categories/VM/">VM</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>5</small></li>
+  
+    <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/Windows/">Windows</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/chocolatey/">chocolatey</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/jekyll/">jekyll</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/nodejs/">nodejs</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/nvm/">nvm</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rails/">rails</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/ruby/">ruby</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rvm/">rvm</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 uolcano
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

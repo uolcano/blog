@@ -52,6 +52,57 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-08-17T03:04:04.000Z"><a href="/blog/2016/08/17/How-to-change-the-directory-of-Vagrant-and-VirtualBox/">2016-08-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/blog/2016/08/17/How-to-change-the-directory-of-Vagrant-and-VirtualBox/">How to change the directory of Vagrant and VirtualBox</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>&#x7531;&#x4E8E;Vagrant&#x548C;VirtualBox&#x5B9E;&#x5728;&#x592A;&#x5360;&#x7A7A;&#x95F4;&#x4E86;&#xFF0C;&#x7528;WinDirStat&#x68C0;&#x6D4B;&#xFF0C;&#x5355;&#x6587;&#x4EF6;&#x6700;&#x5360;&#x7A7A;&#x95F4;&#x7684;&#x662F;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x51B3;&#x5B9A;&#x6539;&#x4E0B;&#x8DEF;&#x5F84;&#x3002;&#x6709;&#x4E24;&#x4E2A;&#x8DEF;&#x5F84;&#x8981;&#x4FEE;&#x6539;&#xFF0C;Vagrant&#x7684;VAGRANT_HOME&#x548C;VirtualBox&#x7684;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;&#x3002;&#x6211;&#x662F;&#x76F4;&#x63A5;&#x5168;&#x90E8;&#x91CD;&#x88C5;&#xFF0C;&#x628A;&#x7A0B;&#x5E8F;&#x4E5F;&#x90FD;&#x6362;&#x4E86;&#x8DEF;&#x5F84;&#x4E86;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;vagrant-box&#x8DEF;&#x5F84;"><a href="#&#x4FEE;&#x6539;Vagrant-BOX&#x8DEF;&#x5F84;" class="headerlink" title="&#x4FEE;&#x6539;Vagrant BOX&#x8DEF;&#x5F84;"></a>&#x4FEE;&#x6539;Vagrant BOX&#x8DEF;&#x5F84;</h2><p>&#x8BBE;&#x7F6E;&#x5355;&#x4E2A;<strong>&#x7528;&#x6237;</strong>&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx VAGRANT_HOME &quot;X:/your/path&quot;</span><br></pre></td></tr></table></figure></p>
+<p>&#x8BBE;&#x7F6E;<strong>&#x7CFB;&#x7EDF;</strong>&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx VAGRANT_HOME &quot;X:/your/path&quot; /M</span><br></pre></td></tr></table></figure></p>
+<p>&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x4ECE;&#x7CFB;&#x7EDF;&#x89C6;&#x56FE;&#x4E2D;&#x627E;&#x5230;&#xFF1A;&#x63A7;&#x5236;&#x9762;&#x677F;-&gt;&#x6240;&#x6709;&#x63A7;&#x5236;&#x9762;&#x677F;&#x9879;&#x76EE;-&gt;&#x7CFB;&#x7EDF;-&gt;&#x9AD8;&#x7EA7;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;-&gt;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4E0A;&#x9762;&#x662F;<strong>&#x7528;&#x6237;</strong>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4E0B;&#x9762;&#x662F;<strong>&#x7CFB;&#x7EDF;</strong>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8FD8;&#x9700;&#x8981;&#x628A;<code>%userprofile%/.vagrant.d/</code>&#x8DEF;&#x5F84;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x79FB;&#x52A8;&#x5230;&#x524D;&#x9762;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x7684;&#x8DEF;&#x5F84;<code>X:/your/path</code>&#x4E2D;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;"><a href="#&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;" class="headerlink" title="&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;"></a>&#x4FEE;&#x6539;&#x865A;&#x62DF;&#x673A;&#x6587;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x8DEF;&#x5F84;</h2><p>VirtualBox&#xFF0C;&#x7BA1;&#x7406;-&gt;&#x5168;&#x5C40;&#x8BBE;&#x5B9A;(Ctrl+G)&#xFF0C;&#x4FEE;&#x6539;<strong>&#x9ED8;&#x8BA4;&#x865A;&#x62DF;&#x7535;&#x8111;&#x4F4D;&#x7F6E;</strong></p>
+<h2 id="putty&#x514D;&#x5BC6;&#x7801;"><a href="#PuTTY&#x514D;&#x5BC6;&#x7801;" class="headerlink" title="PuTTY&#x514D;&#x5BC6;&#x7801;"></a>PuTTY&#x514D;&#x5BC6;&#x7801;</h2><p>&#x8FD9;&#x91CC;&#x987A;&#x4FBF;&#x628A;&#x4E4B;&#x524D;&#x6CA1;&#x5B8C;&#x6210;&#x7684;PuTTY&#x7684;&#x81EA;&#x52A8;&#x767B;&#x5F55;&#x6765;&#x5B8C;&#x6210;&#x4E86;&#x3002;&#x5F53;&#x7136;&#x5148;&#x5F00;Vagrant&#x662F;&#x514D;&#x4E0D;&#x4E86;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;&#xFF1A;&#x6BCF;&#x6B21;&#x521A;&#x6253;&#x5F00;PAGEANT&#x65F6;&#xFF0C;&#x90FD;&#x9700;&#x8981;PAGEANT-&gt;Add Key(&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;passphrase&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8F93;&#x5165;passphrase)&#x3002;&#x5982;&#x679C;&#x89C9;&#x5F97;&#x9EBB;&#x70E6;&#x8FD8;&#x662F;skip&#x5427;&#x3002;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x6253;&#x5F00;PuTTYGEN&#xFF0C;&#x70B9;&#x51FB;Load&#xFF0C;&#x5728;<br>Vagrant&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x7684;&#x5B50;&#x76EE;&#x5F55;<code>.vagrant\machines\default\virtualbox</code>&#x627E;&#x5230;private_key(&#x6CE8;&#x610F;&#x8981;&#x624B;&#x52A8;&#x9009;&#x62E9;&#x6587;&#x4EF6;&#x7C7B;&#x578B;,<code>All Files(*.*)</code>)&#xFF0C;&#x6253;&#x5F00;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x4FEE;&#x6539;<code>Key comment</code>&#x6765;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;Key&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x952E;&#x5165;<code>Key passphrase</code>&#x548C;<code>Comfirm passphrase</code>&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;Key&#x6587;&#x4EF6;&#x7684;&#x52A0;&#x5BC6;&#x5BC6;&#x94A5;(&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;passphrase&#xFF0C;&#x540E;&#x9762;&#x7528;PAGEANT&#x65F6;&#x4F1A;&#x9700;&#x8981;&#x7528;&#x5230;&#xFF0C;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;.chm&#x6587;&#x6863;&#x662F;&#x8BF4;&#x5EFA;&#x8BAE;&#x7528;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E2A;&#x5BC6;&#x94A5;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x5B9A;&#x8981;&#x81EA;&#x5DF1;&#x53E6;&#x5916;&#x8BB0;&#x4E0B;&#x6765;)&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB;<code>Save private key</code>&#xFF0C;&#x751F;&#x6210;&#x6269;&#x5C55;&#x540D;&#x4E3A;<code>.ppk</code>&#x7684;&#x79C1;&#x94A5;&#xFF0C;&#x81EA;&#x5DF1;&#x53D6;&#x540D;&#x3002;&#x516C;&#x94A5;&#x5B58;&#x4E0D;&#x5B58;&#x90FD;&#x65E0;&#x6240;&#x8C13;(&#x6682;&#x65F6;&#x7528;&#x4E0D;&#x5230;)&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x751F;&#x6210;&#x7684;&#x79C1;&#x94A5;&#x91CC;&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x4E86;&#xFF0C;&#x5982;&#x6709;&#x9700;&#x8981;&#xFF0C;&#x76F4;&#x63A5;&#x5728;PuTTYGEN&#x518D;<code>load-&gt;Save public key</code>&#x5C31;&#x597D;&#x4E86;&#x3002;</li>
+<li>&#x6253;&#x5F00;PAGEANT&#xFF0C;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x56FE;&#x6807;&#x4E0A;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x6234;&#x5E3D;&#x5B50;&#x7684;&#x7535;&#x8111;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x53F3;&#x952E;-&gt;View Keys-&gt;Add Key&#xFF0C;&#x9009;&#x62E9;&#x521A;&#x624D;&#x751F;&#x6210;&#x7684;<code>.ppk</code>&#x79C1;&#x94A5;&#x6587;&#x4EF6;</li>
+<li>&#x4EE5;&#x540E;&#x8981;&#x6253;&#x5F00;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x76F4;&#x63A5;&#x627E;&#x5230;PAGEANT&#xFF0C;&#x53F3;&#x952E;-&gt;Saved Sessions&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x673A;&#x3002;&#x9700;&#x8981;&#x5173;&#x95ED;PAGEANT&#xFF0C;&#x76F4;&#x63A5;&#x53F3;&#x952E;-&gt;Exit</li>
+</ol>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x4E4B;&#x540E;&#x53EA;&#x8981;PAGEANT&#x6CA1;<code>Exit</code>&#xFF0C;&#x767B;&#x5F55;&#x865A;&#x62DF;&#x673A;&#x65F6;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x4E86;&#x3002;</p>
+<p>Vagrant&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x767B;&#x5F55;&#x5BC6;&#x94A5;&#x6587;&#x4EF6;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;<code>vagrant ssh-config</code>&#x8F93;&#x51FA;&#x7684;<code>IdentityFile</code>&#x5B57;&#x6BB5;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h2><ul>
+<li><a href="http://urouge.github.io/how-to-change-vagrant-box-directory-in-Windows/" target="_blank" rel="external">http://urouge.github.io/how-to-change-vagrant-box-directory-in-Windows/</a></li>
+<li><a href="http://awezome.net/1995/" target="_blank" rel="external">http://awezome.net/1995/</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-08-16T04:30:10.000Z"><a href="/blog/2016/08/16/How-to-fallback-https-to-http-on-GitHub-Pages/">2016-08-16</a></time>
       
       
@@ -618,88 +669,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-10T15:34:25.000Z"><a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">2016-04-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/blog/2016/04/10/Install-rvm-ruby-rails-nvm-nodejs-and-git-under-Ubuntu-14-04/">Install rvm, ruby, rails, nvm, nodejs and git under Ubuntu 14.04</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ol>
-<li><p>&#x4E0B;&#x8F7D;&#x8BC1;&#x4E66;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;&#x7A33;&#x5B9A;&#x7248;rvm&#x4EE5;&#x53CA;&#x6700;&#x65B0;&#x7248;&#x7684;ruby</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ruby</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x5E76;&#x7ACB;&#x5373;&#x6267;&#x884C;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev</span><br><span class="line">source ~/.rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4FEE;&#x6539;rubygems&#x7684;&#x6E90;&#x4E3A;&#x6DD8;&#x5B9D;ruby&#x6E90;&#xFF0C;&#x5E76;&#x67E5;&#x770B;&#x786E;&#x8BA4;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">gen sources -l</span><br></pre></td></tr></table></figure>
-<p> PS&#xFF1A;&#x6DD8;&#x5B9D;&#x6E90;&#x5982;&#x679C;&#x6709;&#x95EE;&#x9898;fetch error&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x7528; <a href="https://gems.ruby-china.org/" target="_blank" rel="external">https://gems.ruby-china.org/</a> &#x66FF;&#x6362;&#x3002;</p>
-</li>
-<li><p>&#x4EE5;sudo&#x5B89;&#x88C5;rubygems-update</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem install rubygems-update</span><br><span class="line">update_rubygems</span><br><span class="line">gem update --system</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;bundler</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;rails</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rails</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;nvm</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash</span><br></pre></td></tr></table></figure>
-<p> &#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7248;nodejs</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 5.0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5B89;&#x88C5;&#x53CA;&#x914D;&#x7F6E;git</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<p> &#x914D;&#x7F6E;git&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x751F;&#x6210;ssh&#x516C;&#x94A5;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
-<p> &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;&#x516C;&#x94A5;&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x4E4B;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p> &#x5230;github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key&#xFF0C;&#x7ED9;SSH key&#x5199;&#x4E2A;&#x540D;&#x5B57;&#x4F5C;&#x4E3A;Title&#xFF0C;&#x5728;key&#x4E0B;&#x7C98;&#x8D34;&#x4ECE;id_rsa.pub&#x91CC;&#x590D;&#x5236;&#x516C;&#x94A5;&#x3002;&#x7136;&#x540E;Add SSH key&#x5373;&#x53EF;&#x3002;</p>
-<p> &#x5C06;&#x672C;&#x5730;git&#x4E0E;github&#x8D26;&#x53F7;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p> &#x663E;&#x793A;&#x4E00;&#x4E0B;&#x4FE1;&#x606F;&#xFF0C;&#x5373;&#x8868;&#x793A;&#x8FDE;&#x63A5;&#x6210;&#x529F;<br> <code>Hi YOUR NAME! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
-</li>
-</ol>
-<h2 id="&#x53C2;&#x8003;&#x94FE;&#x63A5;"><a href="#&#x53C2;&#x8003;&#x94FE;&#x63A5;" class="headerlink" title="&#x53C2;&#x8003;&#x94FE;&#x63A5;"></a>&#x53C2;&#x8003;&#x94FE;&#x63A5;</h2><ul>
-<li><a href="https://rvm.io/rvm/install" target="_blank" rel="external">https://rvm.io/rvm/install</a></li>
-<li><a href="https://github.com/rvm/rvm" target="_blank" rel="external">https://github.com/rvm/rvm</a></li>
-<li><a href="https://gorails.com/setup/ubuntu/14.04" target="_blank" rel="external">https://gorails.com/setup/ubuntu/14.04</a></li>
-<li><a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></li>
-<li><a href="http://gems.ruby-china.org/" target="_blank" rel="external">http://gems.ruby-china.org/</a></li>
-<li><a href="http://stackoverflow.com/questions/13626143/how-to-upgrade-rubygems" target="_blank" rel="external">http://stackoverflow.com/questions/13626143/how-to-upgrade-rubygems</a></li>
-<li><a href="https://github.com/creationix/nvm" target="_blank" rel="external">https://github.com/creationix/nvm</a></li>
-<li><a href="https://help.github.com/articles/set-up-git/" target="_blank" rel="external">https://help.github.com/articles/set-up-git/</a></li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -721,7 +690,9 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>7</small></li>
+    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
+  
+    <li><a href="/blog/categories/VM/">VM</a><small>2</small></li>
   
   </ul>
 </div>
@@ -738,13 +709,13 @@
   
     <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
   
-    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>1</small></li>
+    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>2</small></li>
   
     <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
   
-    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>1</small></li>
+    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>2</small></li>
   
-    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>1</small></li>
+    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
   
     <li><a href="/blog/tags/Windows/">Windows</a><small>4</small></li>
   
