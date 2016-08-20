@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How to get type of some data in JavaScript | UC&#39;s Programming Eden</title>
+  <meta name="author" content="uolcano">
+  
+  <meta name="description" content="To believe that programming make the life wonderful, make the world better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="How to get type of some data in JavaScript"/>
+  <meta property="og:site_name" content="UC&#39;s Programming Eden"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/blog/favicon.png" rel="icon">
+  <link rel="alternate" href="/blog/atom.xml" title="UC&#39;s Programming Eden" type="application/atom+xml">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/blog/">UC&#39;s Programming Eden</a></h1>
+  <h2><a href="/blog/">To be a pure man, to be a social man</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/blog/">Home</a></li>
+    
+      <li><a href="/blog/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-08-20T18:25:19.000Z"><a href="/blog/2016/08/21/How-to-get-type-of-some-data-in-JavaScript/">2016-08-21</a></time>
+      
+      
+  
+    <h1 class="title">How to get type of some data in JavaScript</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="how-to-typeof-some-data-in-javascript"><a href="#How-to-typeof-some-data-in-JavaScript" class="headerlink" title="How to typeof some data in JavaScript"></a>How to typeof some data in JavaScript</h1><p>We known, sometimes it&#x2019;s difficult to get the type of some data, by native JavaScript. Especially scripting cross frames.</p>
+<p>So, we need some tools to get it accurately. Let&#x2019;s do it.</p>
+<h2 id="limitations-of-typeof"><a href="#Limitations-of-typeof" class="headerlink" title="Limitations of typeof"></a>Limitations of <code>typeof</code></h2><p>JavaScript provides <code>typeof</code> to get the type of some data natively.<br>But the operator can not detect all types of data in JavaScript.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>              <span class="comment">// &apos;undefined&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>                    <span class="comment">// &apos;number&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">Infinity</span>               <span class="comment">// &apos;number&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>                    <span class="comment">// &apos;number&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>                   <span class="comment">// &apos;boolean&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&apos;abc&apos;</span>                  <span class="comment">// &apos;string&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}           <span class="comment">// &apos;function&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> {name: <span class="string">&apos;uolcano&apos;</span>}      <span class="comment">// &apos;object&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>                   <span class="comment">// &apos;object&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                <span class="comment">// &apos;object&apos;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> (<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>{})   <span class="comment">// &apos;object&apos;</span></span><br></pre></td></tr></table></figure></p>
+<p>The codes above tell us three things:</p>
+<ul>
+<li><code>typeof</code> can detect function type</li>
+<li>it can detect the primitive values, but not exactly for number type</li>
+<li>it regards all objects as the base object type, even though <code>null</code> is not an object semantically.</li>
+</ul>
+<p>The latter two situation need to be solved.</p>
+<h2 id="refining-the-number-detecting"><a href="#Refining-the-number-detecting" class="headerlink" title="Refining the number detecting"></a>Refining the number detecting</h2><p><code>typeof</code> can not exactly detect <code>Infinity</code> and <code>NaN</code>, so we must detect them separately.</p>
+<p>There are some hints: the object <code>window</code> has two methods &#x2013; <code>window.isNaN</code> and <code>window.isFinite</code>, detect whether a number is &#x2018;Not a Number&#x2019;, and whether a number is finite, respectively.<br>So, we just need to deal with them solely, the other number is really a number.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> type = <span class="keyword">typeof</span> arg;</span><br><span class="line"><span class="keyword">if</span>(type === <span class="string">&apos;number&apos;</span>) {</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">isNaN</span>(arg)) <span class="keyword">return</span> <span class="string">&apos;NaN&apos;</span>;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="built_in">isFinite</span>(arg)) <span class="keyword">return</span> <span class="string">&apos;Infinity&apos;</span>;</span><br><span class="line">	<span class="keyword">return</span> type;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<h2 id="detecting-object-type"><a href="#Detecting-object-type" class="headerlink" title="Detecting object type"></a>Detecting object type</h2><p>There two ways to get the correct type of an instance of certain type:</p>
+<ul>
+<li><code>Object.prototype.toString</code> can get the type of the built-in object</li>
+<li>An object&#x2019;s <code>constructor</code> property references the constructor on the closest prototype chain</li>
+</ul>
+<p>Firstly, we retrieve the type of the built-in object, thus the other objects is some non-native object &#x2013; e.g. BOM object, DOM object and developer-customized object.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> arg === <span class="string">&apos;object&apos;</span>) {</span><br><span class="line">	<span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(arg).slice(<span class="number">8</span>, <span class="number">-1</span>).toLowerCase();</span><br><span class="line">	<span class="keyword">switch</span>(type){</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;number&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;string&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;boolean&apos;</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&apos;object &apos;</span> + type;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;null&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;date&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;regexp&apos;</span>:</span><br><span class="line">		    <span class="keyword">return</span> type;</span><br><span class="line">	    <span class="keyword">default</span>:</span><br><span class="line">		    <span class="keyword">return</span> arg.constructor.toString().match(<span class="regexp">/function\s*([^\(\s]*)/</span>)[<span class="number">1</span>].toLowerCase();</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<script src="//gist.github.com/e4d7a288bc6f092794dd020d09694e83.js?file=[typeof.js]"></script>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/blog/categories/FrontEnd/">FrontEnd</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/blog/tags/JavaScript/">JavaScript</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://uolcano.github.io/blog/2016/08/21/How-to-get-type-of-some-data-in-JavaScript/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:uolcano.github.io/blog">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
+  
+    <li><a href="/blog/categories/Environment-Configuration/">Environment Configuration</a><small>2</small></li>
+  
+    <li><a href="/blog/categories/FrontEnd/">FrontEnd</a><small>1</small></li>
+  
+    <li><a href="/blog/categories/VM/">VM</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>5</small></li>
+  
+    <li><a href="/blog/tags/Java/">Java</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Linux-Terminal/">Linux Terminal</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/PuTTY/">PuTTY</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Ubuntu-14-04/">Ubuntu 14.04</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/Vagrant/">Vagrant</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/VirtualBox/">VirtualBox</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/Windows/">Windows</a><small>4</small></li>
+  
+    <li><a href="/blog/tags/chocolatey/">chocolatey</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/git/">git</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/jekyll/">jekyll</a><small>2</small></li>
+  
+    <li><a href="/blog/tags/nodejs/">nodejs</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/nvm/">nvm</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rails/">rails</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/ruby/">ruby</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/rvm/">rvm</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 uolcano
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

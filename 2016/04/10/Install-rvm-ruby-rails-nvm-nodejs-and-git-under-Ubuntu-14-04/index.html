@@ -92,9 +92,9 @@
 <li><p>&#x5B89;&#x88C5;&#x53CA;&#x914D;&#x7F6E;git</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
 <p> &#x914D;&#x7F6E;git&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x751F;&#x6210;ssh&#x516C;&#x94A5;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui true</span><br><span class="line">git config --global user.name &quot;YOUR NAME&quot;</span><br><span class="line">git config --global user.email &quot;YOUR@EMAIL.com&quot;</span><br><span class="line">git config -l #&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span><br><span class="line">ssh-keygen -t rsa -C &quot;YOUR@EMAIL.com&quot; # &#x4E00;&#x76F4;&#x6572;&#x56DE;&#x8F66;</span><br></pre></td></tr></table></figure>
 <p> &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;&#x516C;&#x94A5;&#xFF0C;&#x5E76;&#x590D;&#x5236;&#x4E4B;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub # id_rsa &#x5E94;&#x8BE5;&#x662F;ubuntu&#x7CFB;&#x7EDF;&#x5206;&#x914D;&#x7684;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x540D;</span><br></pre></td></tr></table></figure>
 <p> &#x5230;github settings-&gt;SSH and GPG keys-&gt;<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH keys</a>-&gt;new SSH key&#xFF0C;&#x7ED9;SSH key&#x5199;&#x4E2A;&#x540D;&#x5B57;&#x4F5C;&#x4E3A;Title&#xFF0C;&#x5728;key&#x4E0B;&#x7C98;&#x8D34;&#x4ECE;id_rsa.pub&#x91CC;&#x590D;&#x5236;&#x516C;&#x94A5;&#x3002;&#x7136;&#x540E;Add SSH key&#x5373;&#x53EF;&#x3002;</p>
 <p> &#x5C06;&#x672C;&#x5730;git&#x4E0E;github&#x8D26;&#x53F7;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
@@ -154,7 +154,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
       <div id="fb-root"></div>
@@ -177,19 +177,21 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:uolcano.github.io/blog">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
   
     <li><a href="/blog/categories/Environment-Configuration/">Environment Configuration</a><small>2</small></li>
+  
+    <li><a href="/blog/categories/FrontEnd/">FrontEnd</a><small>1</small></li>
   
     <li><a href="/blog/categories/VM/">VM</a><small>1</small></li>
   
@@ -199,12 +201,14 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
     <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>5</small></li>
   
     <li><a href="/blog/tags/Java/">Java</a><small>1</small></li>
+  
+    <li><a href="/blog/tags/JavaScript/">JavaScript</a><small>1</small></li>
   
     <li><a href="/blog/tags/Linux/">Linux</a><small>1</small></li>
   
