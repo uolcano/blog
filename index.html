@@ -80,8 +80,7 @@
 <li>An object&#x2019;s <code>constructor</code> property references the constructor on the closest prototype chain</li>
 </ul>
 <p>Firstly, we retrieve the type of the built-in object, thus the other objects is some non-native object &#x2013; e.g. BOM object, DOM object and developer-customized object.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> arg === <span class="string">&apos;object&apos;</span>) {</span><br><span class="line">	<span class="keyword">var</span> type = <span class="built_in">Object</span>.prototype.toString.call(arg).slice(<span class="number">8</span>, <span class="number">-1</span>).toLowerCase();</span><br><span class="line">	<span class="keyword">switch</span>(type){</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;number&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;string&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;boolean&apos;</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&apos;object &apos;</span> + type;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;null&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;date&apos;</span>:</span><br><span class="line">		<span class="keyword">case</span> <span class="string">&apos;regexp&apos;</span>:</span><br><span class="line">		    <span class="keyword">return</span> type;</span><br><span class="line">	    <span class="keyword">default</span>:</span><br><span class="line">		    <span class="keyword">return</span> arg.constructor.toString().match(<span class="regexp">/function\s*([^\(\s]*)/</span>)[<span class="number">1</span>].toLowerCase();</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
-<p>The complete codes: <a href="https://gist.github.com/uolcano/e4d7a288bc6f092794dd020d09694e83" target="_blank" rel="external">my gist</a></p>
-<script src="//gist.github.com/e4d7a288bc6f092794dd020d09694e83.js?file=[typeof.js]"></script>
+<p>The complete codes:</p>
 <script src="https://gist.github.com/uolcano/e4d7a288bc6f092794dd020d09694e83.js"></script>
       
     </div>
@@ -704,21 +703,21 @@
 <nav id="pagination">
   
   
-    <a href="/blog/page/2/" class="alignright next">Next</a>
+    <a href="/blog/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:uolcano.github.io/blog">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/blog/categories/Building-Site/">Building Site</a><small>6</small></li>
@@ -735,7 +734,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
     <li><a href="/blog/tags/GitHub-Pages/">GitHub Pages</a><small>5</small></li>
