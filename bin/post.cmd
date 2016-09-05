@@ -1,0 +1,1 @@
+@node E:\GitHub\blog\bin\post.js %*
