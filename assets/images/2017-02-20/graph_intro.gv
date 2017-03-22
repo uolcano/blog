@@ -1,0 +1,6 @@
+digraph graph_intro {
+	graph [bgcolor=lemonchiffon, fontsize=24, fontcolor=limegreen, rankdir=LR, fontname="Microsoft Yahei", label="图的名称"];
+
+	node0 -> {node1, node2};
+	node2 -> node3;
+}

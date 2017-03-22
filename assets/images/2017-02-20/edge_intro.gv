@@ -1,0 +1,32 @@
+digraph edge_intro {
+	graph [label="连线示例 ", fontname="Microsoft Yahei"];
+	edge [fontname="Microsoft Yahei"];
+	node [fontname="Microsoft Yahei"];
+
+	style0 [label="以下是连线样式示例 "];
+	style1, style2, style3, style4 [label=""];
+
+	style0 -> style1 [style=solid, label="实线 "];
+	style1 -> style2 [style=bold, label="粗线 "];
+	style2 -> style3 [style=dashed, label="短划线 "];
+	style3 -> style4 [style=dotted, label="虚线 "];
+
+	arrow0 [label="以下是箭头形状示例 "];
+	arrow1, arrow2, arrow3, arrow4, arrow5, arrow6, arrow7, arrow8 [label=""];
+
+	arrow0 -> arrow1 [dir=both, label="双向 "];
+	arrow1 -> arrow2 [arrowsize=2, label="大箭头 "];
+	arrow2 -> arrow3 [arrowhead=box, label="方块 "];
+	arrow3 -> arrow4 [arrowhead=diamond, label="菱形 "];
+	arrow4 -> arrow5 [arrowhead=curve, label="弧形 "];
+	arrow5 -> arrow6 [arrowhead=normal, label="默认的三角形 "];
+	arrow6 -> arrow7 [arrowhead=dot, label="圆点 "];
+	arrow7 -> arrow8 [arrowhead=oboxdotrveecurve, label="镂空方块 圆点 半边箭头\n圆弧 构成的复合图形 ", fontsize=12];
+
+	color0 [label="以下是连线颜色示例 "];
+	color1, color2, color3 [label=""];
+
+	color0 -> color1 [color=blue, label="蓝色 "];
+	color1 -> color2 [color="red:blue", label="双色 "];
+	color2 -> color3 [color="red:green;0.4:blue", label="多颜色分段 "];
+}

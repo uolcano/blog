@@ -1,0 +1,98 @@
+digraph mindmap{
+	graph [label="DOT-lang learning map", fontsize=12, rankdir=LR];
+	edge [color="#0066ff", arrowhead=dot, arrowsize=.8, fontsize=12];
+	node [shape=box, style=rounded, fontname="Microsoft Yahei", fontsize=12];
+
+	tree [label="DOT\n语言 ", style="filled, rouned", fillcolor="#336699", fontsize=20, fontcolor=white];
+
+	b1 [label="绘制方式 "];
+	tree -> {b1 b2 b3 b4};
+
+	b1_1 [label="命令行\ndot -Tpng -O abc.gv"];
+	b1_2 [label="gvedit"];
+	b1 -> {b1_1 b1_2};
+
+	b2 [label="输出格式 "];
+	b2_1 [shape=record, label="{bmp|png|jpg|gif|pdf}"];
+	b2 -> b2_1;
+
+	b3 [label="布局器 "];
+	b3_1 [label="dot\n默认\n有向图 "];
+	b3_2 [label="neato\nspring model布局 "];
+	b3_3 [label="circo\n圆环 "];
+	b3_4 [label="twopi\n径向 "];
+	b3_5 [label="fdp\n无向图 "];
+	b3_6 [label="sfdp\n大尺寸的无向图 "];
+	b3_7 [label="osage\n紧凑的图集群 "];
+	b3 -> {b3_1 b3_2 b3_3 b3_4 b3_5 b3_6 b3_7};
+
+	b4 [label="语法 "];
+	b4 -> {b4_1 b4_2 b4_3 b4_4 b4_5};
+
+	b4_1 [label="ID"];
+	b4_1 -> {b4_1_1 b4_1_2}
+
+	b4_1_1 [label="字符 "];
+	b4_1_1_1 [label=<<font color="red">字母</font><br /><font color="orange">数字</font><br /><font color="blue">下划线</font>>];
+	b4_1_1 -> b4_1_1_1;
+
+	b4_1_2 [label="字符串 "];
+	b4_1_2_1 [label="双引号\"...\"包裹 "];
+	b4_1_2_2 [label="尖括号\<...\>包裹"];
+	b4_1_2 -> {b4_1_2_1 b4_1_2_2};
+
+	b4_2 [label="关键字 "];
+	b4_2 -> {b4_2_1 b4_2_2 b4_2_3 b4_2_4 b4_2_5 b4_2_6};
+
+	b4_2_1 [label="graph"];
+	b4_2_2 [label="digraph"];
+	b4_2_3 [label="subgraph"];
+	b4_2_3_1 [label="cluster"];
+	b4_2_3 -> b4_2_3_1;
+
+	b4_2_4 [label="edge"];
+	b4_2_5 [label="node"];
+	b4_2_6 [label="strict"];
+
+	b4_3 [label="字符串 "];
+	b4_3_1 [label="换行：\n\"Hello\\\nworld\" "];
+	b4_3_2 [label="拼接：\n\"Hello\"+\"world\" "];
+	b4_3 -> {b4_3_1 b4_3_2 b4_3_3 b4_3_4};
+
+	b4_3_3 [label="转义 "];
+	b4_3_3_1 [label="\\\""];
+	b4_3_3_2 [label="\\\\"];
+	b4_3_3 -> {b4_3_3_1 b4_3_3_2};
+
+	b4_3_4 [label="实体字符\n如：\&amp\; &delta\;"];
+
+	b4_4 [label="分组符号 "];
+	b4_4 -> {b4_4_1 b4_4_2};
+
+	b4_4_1 [label="\[...\]"];
+	b4_4_1_1 [label="属性定义 "];
+	b4_4_1 -> b4_4_1_1;
+
+	b4_4_2 [label="\{...\}"];
+	b4_4_2_1 [label="图的声明"];
+	b4_4_2_2 [label="简写多节点连接\n如：a -- \{b c\} "];
+	b4_4_2_3 [label="node [shape=record, label=\"\{x\|y\|z\}\"]"];
+	b4_4_2 -> {b4_4_2_1 b4_4_2_2 b4_4_2_3};
+
+	b4_5 [label="属性 "];
+	b4_5_1 [label="label"];
+	b4_5_2 [label="shape"];
+	b4_5_3 [label="style"];
+	b4_5_4 [label="fillcolor"];
+	b4_5_5 [label="bgcolor"];
+	b4_5_6 [label="color"];
+	b4_5_7 [label="fontcolor"];
+	b4_5_8 [label="fontname"];
+	b4_5_9 [label="fontsize"];
+	b4_5_10 [label="rankdir"];
+	b4_5_11 [label="dir"];
+	b4_5_12 [label="arrowhead"];
+	b4_5_13 [label="arrowtail"];
+	b4_5_14 [label="arrowsize"];
+	b4_5 -> {b4_5_1 b4_5_2 b4_5_3 b4_5_4 b4_5_5 b4_5_6 b4_5_7 b4_5_8 b4_5_9 b4_5_10 b4_5_11 b4_5_12 b4_5_13 b4_5_14};
+}
